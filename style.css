@@ -1,0 +1,157 @@
+/*
+Theme Name: Thrive
+Theme URI: https://thriveteams.org
+Author: James Doc
+Author URI: http://jamesdoc.com
+Description: Awesome theme for the Thrive wordpress site
+Version: 0.1
+Text Domain: thrive
+*/
+
+/* This was forked from the 2015 theme, but looks nothing like it */
+
+/**
+ * Reset
+ */
+a,abbr,acronym,address,applet,big,blockquote,body,caption,cite,code,dd,del,dfn,div,dl,dt,em,fieldset,font,form,h1,h2,h3,h4,h5,h6,html,iframe,ins,kbd,label,legend,li,object,ol,p,pre,q,s,samp,small,span,strike,strong,sub,sup,table,tbody,td,tfoot,th,thead,tr,tt,ul,var{border:0;font-family:inherit;font-size:100%;font-style:inherit;font-weight:inherit;margin:0;outline:0;padding:0;vertical-align:baseline}html{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;font-size:62.5%;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}*,:after,:before{-webkit-box-sizing:inherit;-moz-box-sizing:inherit;box-sizing:inherit}body{background:#f1f1f1}article,aside,details,figcaption,figure,footer,header,main,nav,section{display:block}ol,ul{list-style:none}table{border-collapse:separate;border-spacing:0}caption,td,th{font-weight:400;text-align:left}blockquote:after,blockquote:before,q:after,q:before{content:""}blockquote,q{-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;quotes:none}a:focus{outline:#c1c1c1 solid 2px;outline:rgba(51,51,51,.3) solid 2px}a:active,a:hover{outline:0}a img{border:0}
+
+body, html {
+	font-family: trebuchet ms;
+}
+
+header {
+	width: 100%;
+	color: #fff;
+}
+
+	.header__logo {
+		position: absolute;
+		top: 40px;
+		z-index: 1;
+		left: 40px;
+		background-image: url('/wp-content/themes/thrive-team/assets/thrive-logo.png');
+		text-indent: -999px;
+		width: 114px;
+		height: 114px;
+		display: block;
+	}
+
+	header a {
+		color: #fff;
+		text-decoration: none;
+	}
+	
+	header nav, header div, header ul, header li{
+		display: inline;
+		text-transform: uppercase;
+	}
+	
+	header ul { position: absolute; top: 50px; z-index: 1; right: 40px; }
+	
+	header li {
+		font-size: 16px;
+		padding: 10px;
+		margin: 5px 2px;
+	}
+	
+	header li:last-child { background-color: rgb(52, 203, 204); color: white; border-radius: 4px; margin-left: 10px;}
+	
+footer {
+	width: 100%;
+	background-color: rgba(29, 41, 85, 0.5);
+	color: #fff;
+}
+
+
+
+/**
+ * Home page specifics
+ */
+ 
+.home-banner {
+	background: rgba(3, 3, 102, 0.7);
+	position: relative;
+	top: -1px;
+	padding: 0;
+	color: white;
+	font-size: 26px;
+	z-index: 0;
+}
+
+	.slider {
+		position: relative;
+		overflow: hidden;
+		
+		width: 100%;
+		height: 0;
+		padding-bottom: 60%;
+	}
+	
+		.slider__slide {
+			
+		}
+ 		
+.infobox {
+	float: left;
+	overflow: hidden;
+	position: relative;
+	
+	width: 100%;
+	height: 0;
+	padding-bottom: 100%;
+}
+
+	.infobox a {
+		text-decoration: none;
+		color: #fff;
+	}
+
+	.infobox img {
+		transition: all 0.2s linear;
+		width: 100%;
+	}
+	
+	.infobox__content {
+		
+		bottom: 0;
+		background-color: rgba(66, 193, 200, 0.7);
+		padding: 10px;
+		position: absolute;
+		width: 100%;
+	}
+	
+		.infobox__content h2 {
+			color: #fff;
+			font-size: 20px;
+			line-height: 24px;
+			text-transform: uppercase;
+		}
+		
+		.infobox__content p {
+			color: #fff;
+			font-size: 14px;
+			line-height: 16px;
+			margin-top: 10px;
+		}
+		
+.infobox:hover img { 
+	 -webkit-filter: grayscale(50%); filter: grayscale(50%);
+	transform: scale(1.1);
+} 
+ 
+.infobox--50 {
+	width: 50%;
+	height: 0;
+	padding-bottom: 50%;
+}
+
+.infobox--33 {
+	width: 33.33333%;
+	height: 0;
+	padding-bottom: 33.33333%;
+}
+
+.infobox--story {}
+	.infobox--story .infobox__content {
+		background-color: rgba(225, 30, 85, 0.7);
+	}
