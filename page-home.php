@@ -18,7 +18,21 @@ get_header(); ?>
 	<section class="home-banner">
 		<div class="slider">
 			<div class="slider__slide">
-				Large image rotation thing here with one call to action...
+				
+				<a href="/">
+				
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/temp/banner_1200x800.jpg" alt="" />
+					
+					<div class="slider__slide__overlay">
+						
+						<div class="slider__slide__overlay__text">
+							<h1>Large image rotation thing here...</h1>
+							<p><span class="btn">Call to action</span></p>
+						</div>
+						
+					</div>
+				
+				</a>
 			</div>
 		</div>
 	</section>

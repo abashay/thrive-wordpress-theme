@@ -1,34 +1,22 @@
-	</div><!-- .site-content -->
+	</div><!-- .content_container -->
 
-	<footer class="site-footer" role="contentinfo">
-		<?php if ( has_nav_menu( 'footer-alpha' ) ) : ?>
-			<nav class="foot-navigation" role="navigation">
+	<footer class="footer" role="contentinfo">
+		
+		<?php if ( has_nav_menu( 'footer' ) ) : ?>
+			<nav class="footer__navigation" role="navigation">
 				<?php
-					// Primary navigation menu.
+					// First footer navigation menu.
 					wp_nav_menu( array(
-						'menu_class'     => 'foot-menu',
-						'theme_location' => 'foot-alpha',
+						'menu_class'     => 'footer__navigation--one',
+						'theme_location' => 'footer',
 					) );
 				?>
 			</nav>
 		<?php endif; ?>
 		
-		<?php /* if ( has_nav_menu( 'footer-beta' ) ) : ?>
-			<nav class="foot-navigation" role="navigation">
-				<?php
-					// Primary navigation menu.
-					wp_nav_menu( array(
-						'menu_class'     => 'foot-menu',
-						'theme_location' => 'foot-beta',
-					) );
-				?>
-			</nav>
-		<?php endif; */ ?>
-	</footer><!-- .site-footer -->
+	</footer>
 
-</div><!-- .site -->
-
-<?php wp_footer(); ?>
+	<?php wp_footer(); ?>
 
 </body>
 </html>

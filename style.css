@@ -16,7 +16,10 @@ Text Domain: thrive
 a,abbr,acronym,address,applet,big,blockquote,body,caption,cite,code,dd,del,dfn,div,dl,dt,em,fieldset,font,form,h1,h2,h3,h4,h5,h6,html,iframe,ins,kbd,label,legend,li,object,ol,p,pre,q,s,samp,small,span,strike,strong,sub,sup,table,tbody,td,tfoot,th,thead,tr,tt,ul,var{border:0;font-family:inherit;font-size:100%;font-style:inherit;font-weight:inherit;margin:0;outline:0;padding:0;vertical-align:baseline}html{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;font-size:62.5%;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}*,:after,:before{-webkit-box-sizing:inherit;-moz-box-sizing:inherit;box-sizing:inherit}body{background:#f1f1f1}article,aside,details,figcaption,figure,footer,header,main,nav,section{display:block}ol,ul{list-style:none}table{border-collapse:separate;border-spacing:0}caption,td,th{font-weight:400;text-align:left}blockquote:after,blockquote:before,q:after,q:before{content:""}blockquote,q{-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;quotes:none}a:focus{outline:#c1c1c1 solid 2px;outline:rgba(51,51,51,.3) solid 2px}a:active,a:hover{outline:0}a img{border:0}
 
 body, html {
-	font-family: trebuchet ms;
+	font-family: "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif;
+	letter-spacing: 1px;
+	-webkit-font-smoothing: antialiased;
+	text-shadow: rgba(0,0,0,.01) 0 0 1px;
 }
 
 header {
@@ -50,18 +53,38 @@ header {
 	
 	header li {
 		font-size: 16px;
+		font-weight: bold;
 		padding: 10px;
 		margin: 5px 2px;
 	}
 	
-	header li:last-child { background-color: rgb(52, 203, 204); color: white; border-radius: 4px; margin-left: 10px;}
-	
-footer {
-	width: 100%;
-	background-color: rgba(29, 41, 85, 0.5);
-	color: #fff;
+	header li:last-child { background-color: rgb(52, 203, 204); color: white; margin-left: 10px;}
+
+.content_container {
+	display: block;
+	clear: both;
 }
 
+footer {
+	background-color: rgb(58, 58, 58);
+	color: #fff;
+	padding: 40px;
+	width: 100%;
+}
+
+	footer a {
+		color: #fff;
+		text-transform: uppercase;
+		text-decoration: none;
+	}
+	
+	.footer__navigation ul {
+		display: inline-block;
+	}
+
+		.footer__navigation li {
+			padding: 10px 0;
+		}
 
 
 /**
@@ -90,6 +113,39 @@ footer {
 		.slider__slide {
 			
 		}
+			
+			/* This link wraps the whole slide */
+			.slider__slide a {
+				color: #fff;
+			}
+			
+				.slider__slide a:hover .btn{
+					background-color: rgba(255, 255, 255, 0.3);
+				}
+		
+			.slider__slide img {
+				width: 100%;
+			}
+		
+			.slider__slide__overlay {
+				bottom: 0;
+				background: rgba(3, 3, 102, 0.7);
+				padding: 20px 40px;
+				position: absolute;
+				top: 0;
+				width: 100%;
+			}
+			
+				.slider__slide__overlay__text {
+					bottom: 40px;
+					position: absolute;
+					text-align: center;
+					width: 100%;
+				}
+				
+					.slider__slide__overlay__text h1, .slider__slide__overlay__text p {
+						padding: 10px 0;
+					}
  		
 .infobox {
 	float: left;
@@ -112,10 +168,9 @@ footer {
 	}
 	
 	.infobox__content {
-		
 		bottom: 0;
 		background-color: rgba(66, 193, 200, 0.7);
-		padding: 10px;
+		padding: 20px 40px;
 		position: absolute;
 		width: 100%;
 	}
@@ -155,3 +210,42 @@ footer {
 	.infobox--story .infobox__content {
 		background-color: rgba(225, 30, 85, 0.7);
 	}
+	
+
+
+
+
+/* 
+**Utility Belt
+**/
+
+/* Buttons */
+
+.btn {
+	border: 3px solid white;
+	color: white;
+	font-size: 16px;
+	text-decoration: none;
+	text-transform: uppercase;
+	padding: 10px;
+	margin: 5px 2px;
+}
+
+	.btn:hover{
+		background-color: rgba(255, 255, 255, 0.3);
+	}
+
+/* Clearfix */
+.cf {
+    *zoom: 1;
+}
+	.cf:before,
+	.cf:after {
+	    content: " "; /* 1 */
+	    display: table; /* 2 */
+	}
+	
+	.cf:after {
+	    clear: both;
+	}
+	

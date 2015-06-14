@@ -57,9 +57,8 @@ function thrive_setup() {
 
 	// Navigation across the site...
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu',      'twentyfifteen' ),
-		'footer-alpha' => __( 'Footer col 1', 'twentyfifteen' ),
-		'footer-beta' => __( 'Footer col 2',  'twentyfifteen' ),
+		'primary' => 'Banner navigation',
+		'footer' => 'Footer'
 	) );
 
 	// Support HTML features
