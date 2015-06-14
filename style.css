@@ -59,7 +59,7 @@ header {
 	
 	header li a:hover{ border-bottom: 2px solid #fff;}
 	
-	header li:last-child a { background-color: rgb(52, 203, 204); color: white;}
+	header li:last-child a { background-color: rgb(52, 203, 204); color: white; margin-left: 10px;}
 	header li:last-child a:hover { background-color: rgb(1, 152, 153); border-bottom: 0;}
 	
 		header li a { 
@@ -131,10 +131,17 @@ footer {
 				}
 		
 			.slider__slide img {
+				transition: all 0.2s linear;
 				width: 100%;
+				transform: scale(1.1);
 			}
+			
+				.slider__slide a:hover img {
+					transform: scale(1);
+				}
 		
 			.slider__slide__overlay {
+				transition: all 0.2s linear;
 				bottom: 0;
 				background: rgba(3, 3, 102, 0.7);
 				padding: 20px 40px;
@@ -142,6 +149,10 @@ footer {
 				top: 0;
 				width: 100%;
 			}
+			
+				.slider__slide a:hover .slider__slide__overlay {
+					background: rgba(3, 3, 102, 0.8);
+				}
 			
 				.slider__slide__overlay__text {
 					bottom: 40px;
