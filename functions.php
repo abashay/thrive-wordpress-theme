@@ -58,7 +58,8 @@ function thrive_setup() {
 	// Navigation across the site...
 	register_nav_menus( array(
 		'primary' => 'Banner navigation',
-		'footer' => 'Footer'
+		'footer-a' => 'Footer (alpha)',
+		'footer-b' => 'Footer (beta)'
 	) );
 
 	// Support HTML features

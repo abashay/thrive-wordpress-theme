@@ -26,7 +26,7 @@ get_header(); ?>
 					<div class="slider__slide__overlay">
 						
 						<div class="slider__slide__overlay__text">
-							<h1>Large image rotation thing here...</h1>
+							<h1>Should your circumstances dictate your destiny?</h1>
 							<p><span class="btn">Call to action</span></p>
 						</div>
 						

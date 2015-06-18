@@ -73,26 +73,97 @@ header {
 }
 
 footer {
-	background-color: rgb(58, 58, 58);
-	color: #fff;
-	padding: 40px;
 	width: 100%;
 }
 
 	footer a {
 		color: #fff;
-		text-transform: uppercase;
 		text-decoration: none;
 	}
-	
-	.footer__navigation ul {
+
+		footer a:hover {
+			border-bottom: 1px solid;
+		}
+
+	footer ul {
 		display: inline-block;
 	}
 
-		.footer__navigation li {
-			padding: 10px 0;
+	footer li {
+		padding: 5px 0;
+	}
+
+	footer label {
+		font-size: 1.3em;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+
+	footer input {
+		width: 100%
+	}
+
+
+	.footer__thrive {
+		align-items: stretch;
+		background-color: rgb(58, 58, 58);
+		color: #fff;
+		display: flex;
+		flex-direction: column;
+		flex-flow: row wrap;
+		justify-content: space-around;
+		overflow: hidden;
+	}
+
+		.footer__thrive a {
+			font-size: 1.3em;
+			font-weight: bold;
+			text-transform: uppercase;
 		}
 
+		.footer__thrive__navigation {
+			padding: 4%;
+			width: 50%;
+		}
+
+			.footer__thrive__navigation div {
+				float: left;
+				min-width: 100px;
+				padding-right: 8%;
+			}
+
+		.footer__thrive__search {
+			padding: 4%;
+			width: 25%;
+		}
+
+		.footer__thrive__signup {
+			background-color: rgb(52, 203, 204);
+			padding: 4%;
+			width: 25%;
+		}
+			
+
+	.footer__innovista {
+		background-color: #fff;
+		color: rgb(58, 58, 58);
+	}
+
+		.footer__innovista a {
+			color: rgb(246, 141, 0);
+		}
+
+			.footer__innovista__text {
+				float: left;
+				padding: 4%;
+				width: 75%;
+			}
+
+			.footer__innovista__logo {
+				float: left;
+				padding: 4%;
+				width: 25%;
+			}
 
 /**
  * Home page specifics
@@ -134,6 +205,7 @@ footer {
 				transition: all 0.2s linear;
 				width: 100%;
 				transform: scale(1.1);
+				animation: fadein 2s;
 			}
 			
 				.slider__slide a:hover img {
@@ -144,7 +216,7 @@ footer {
 				transition: all 0.2s linear;
 				bottom: 0;
 				background: rgba(3, 3, 102, 0.7);
-				padding: 20px 40px;
+				padding: 2% 0;
 				position: absolute;
 				top: 0;
 				width: 100%;
@@ -155,15 +227,28 @@ footer {
 				}
 			
 				.slider__slide__overlay__text {
-					bottom: 40px;
-					margin: 0 -40px;
+					bottom: 4%;
+					padding: 0 15%;
 					position: absolute;
 					text-align: center;
-					width: 100%;
 				}
 				
 					.slider__slide__overlay__text h1, .slider__slide__overlay__text p {
-						padding: 10px 0;
+						padding: 1% 0;
+					}
+
+					.slider__slide__overlay__text h1 {
+						font-weight: normal;
+						font-size: 2.5em;
+						text-transform: uppercase;
+						text-align: left;
+					}
+
+					.slider__slide__overlay__text .btn {
+						border-radius: 5px;
+						font-style: italic;
+						text-transform: none;
+						padding: 1.5% 2%;
 					}
  		
 .infobox {
@@ -189,7 +274,7 @@ footer {
 	.infobox__content {
 		bottom: 0;
 		background-color: rgba(66, 193, 200, 0.7);
-		padding: 20px 40px;
+		padding: 2% 4%;
 		position: absolute;
 		width: 100%;
 	}
@@ -205,7 +290,7 @@ footer {
 			color: #fff;
 			font-size: 14px;
 			line-height: 16px;
-			margin-top: 10px;
+			margin-top: 1%;
 		}
 		
 .infobox:hover img { 
@@ -219,11 +304,15 @@ footer {
 	padding-bottom: 50%;
 }
 
+	.infobox--50 .infobox__content { padding: 4% 8%; }
+
 .infobox--33 {
 	width: 33.33333%;
 	height: 0;
 	padding-bottom: 33.33333%;
 }
+
+	.infobox--33 .infobox__content { padding: 3% 6%; }
 
 .infobox--story {}
 	.infobox--story .infobox__content {
@@ -267,4 +356,11 @@ footer {
 	.cf:after {
 	    clear: both;
 	}
+
+/* fade in */
+@keyframes fadein {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+}
 	
