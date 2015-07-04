@@ -16,325 +16,304 @@ Text Domain: thrive
 a,abbr,acronym,address,applet,big,blockquote,body,caption,cite,code,dd,del,dfn,div,dl,dt,em,fieldset,font,form,h1,h2,h3,h4,h5,h6,html,iframe,ins,kbd,label,legend,li,object,ol,p,pre,q,s,samp,small,span,strike,strong,sub,sup,table,tbody,td,tfoot,th,thead,tr,tt,ul,var{border:0;font-family:inherit;font-size:100%;font-style:inherit;font-weight:inherit;margin:0;outline:0;padding:0;vertical-align:baseline}html{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;font-size:62.5%;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}*,:after,:before{-webkit-box-sizing:inherit;-moz-box-sizing:inherit;box-sizing:inherit}body{background:#f1f1f1}article,aside,details,figcaption,figure,footer,header,main,nav,section{display:block}ol,ul{list-style:none}table{border-collapse:separate;border-spacing:0}caption,td,th{font-weight:400;text-align:left}blockquote:after,blockquote:before,q:after,q:before{content:""}blockquote,q{-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;quotes:none}a:focus{outline:#c1c1c1 solid 2px;outline:rgba(51,51,51,.3) solid 2px}a:active,a:hover{outline:0}a img{border:0}
 
 body, html {
-	font-family: "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif;
-	letter-spacing: 1px;
-	-webkit-font-smoothing: antialiased;
-	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+    font-family: "Avenir", "Trebuchet MS","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Tahoma,sans-serif;
+    font-size: 100%;
+    letter-spacing: 1px;
+    -webkit-font-smoothing: antialiased;
+    text-shadow: rgba(0,0,0,.01) 0 0 1px;
+    height: 100%;
 }
 
 header {
-	width: 100%;
-	color: #fff;
+    width: 100%;
+    color: #fff;
 }
 
-	.header__logo {
-		position: absolute;
-		top: 40px;
-		z-index: 1;
-		left: 40px;
-		background-image: url('/wp-content/themes/thrive-team/assets/thrive-logo.png');
-		text-indent: -999px;
-		width: 114px;
-		height: 114px;
-		display: block;
-	}
+    .header__logo {
+        position: absolute;
+        top: 40px;
+        z-index: 1;
+        left: 40px;
+        background-image: url('/wp-content/themes/thrive-team/assets/thrive-logo.png');
+        text-indent: -999px;
+        width: 114px;
+        height: 114px;
+        display: block;
+    }
 
-	header a {
-		color: #fff;
-		text-decoration: none;
-	}
+    header a {
+        color: #fff;
+        text-decoration: none;
+    }
 
-	header nav, header div, header ul, header li{
-		display: inline;
-		text-transform: uppercase;
-	}
+    header nav, header div, header ul, header li{
+        display: inline;
+        text-transform: uppercase;
+    }
 
-	header ul { position: absolute; top: 50px; z-index: 1; right: 40px; }
+    header ul { position: absolute; top: 50px; z-index: 1; right: 40px; }
 
-	header li {
-		display: inline-block;
-		font-size: 16px;
-		font-weight: bold;
-	}
+    header li {
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bold;
+    }
 
-	header li a:hover{ border-bottom: 2px solid #fff;}
+    header li a:hover{ border-bottom: 2px solid #fff;}
 
-	header li:last-child a { background-color: rgb(52, 203, 204); color: white; margin-left: 10px;}
-	header li:last-child a:hover { background-color: rgb(1, 152, 153); border-bottom: 0;}
+    header li:last-child a { background-color: rgb(52, 203, 204); color: white; margin-left: 10px;}
+    header li:last-child a:hover { background-color: rgb(1, 152, 153); border-bottom: 0;}
 
-		header li a {
-			padding: 10px;
-			display: inherit;
-		}
+        header li a {
+            padding: 10px;
+            display: inherit;
+        }
 
 .content_container {
-	display: block;
-	clear: both;
+    display: block;
+    clear: both;
 }
 
 footer {
-	width: 100%;
+    width: 100%;
 }
 
-	footer a {
-		color: #fff;
-		text-decoration: none;
-	}
+    footer a {
+        color: #fff;
+        text-decoration: none;
+    }
 
-		footer a:hover {
-			border-bottom: 1px solid;
-		}
+        footer a:hover {
+            border-bottom: 1px solid;
+        }
 
-	footer ul {
-		display: inline-block;
-	}
+    footer ul {
+        display: inline-block;
+    }
 
-	footer li {
-		padding: 5px 0;
-	}
+    footer li {
+        padding: 5px 0;
+    }
 
-	footer label {
-		font-size: 1.3em;
-		font-weight: bold;
-		text-transform: uppercase;
-	}
+    footer label {
+        font-size: 1em;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
 
-	footer input {
-		width: 100%
-	}
-
-
-	.footer__thrive {
-		align-items: stretch;
-		background-color: rgb(58, 58, 58);
-		color: #fff;
-		display: flex;
-		flex-direction: column;
-		flex-flow: row wrap;
-		justify-content: space-around;
-		overflow: hidden;
-	}
-
-		.footer__thrive a {
-			font-size: 1.3em;
-			font-weight: bold;
-			text-transform: uppercase;
-		}
-
-		.footer__thrive__navigation {
-			padding: 4%;
-			width: 50%;
-		}
-
-			.footer__thrive__navigation div {
-				float: left;
-				min-width: 100px;
-				padding-right: 8%;
-			}
-
-		.footer__thrive__search {
-			padding: 4%;
-			width: 25%;
-		}
-
-		.footer__thrive__signup {
-			background-color: rgb(52, 203, 204);
-			padding: 4%;
-			width: 25%;
-		}
+    footer input {
+        width: 100%
+    }
 
 
-	.footer__innovista {
-		background-color: #fff;
-		color: rgb(58, 58, 58);
-	}
+    .footer__thrive {
+        align-items: stretch;
+        background-color: rgb(58, 58, 58);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        overflow: hidden;
+    }
 
-		.footer__innovista p {
-			margin: 5px 0;
-		}
+        .footer__thrive a {
+            font-size: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
 
-			.footer__innovista__text {
-				float: left;
-				padding: 4%;
-				width: 75%;
-			}
+        .footer__thrive__navigation {
+            padding: 4%;
+            width: 50%;
+        }
 
-				.footer__innovista__text a {
-					color: rgb(58, 58, 58);
-					border-bottom: 1px solid rgb(58, 58, 58);
-				}
+            .footer__thrive__navigation div {
+                float: left;
+                min-width: 100px;
+                padding-right: 8%;
+            }
 
-					.footer__innovista__text a:hover {
-						border-color: rgb(246, 141, 0);
-					}
+        .footer__thrive__search {
+            padding: 4%;
+            width: 25%;
+        }
 
-			.footer__innovista__logo {
-				float: left;
-				padding: 4%;
-				width: 25%;
-			}
+        .footer__thrive__signup {
+            background-color: rgb(52, 203, 204);
+            padding: 4%;
+            width: 25%;
+        }
 
-				.footer__innovista__logo a:hover{
-					border-bottom: none;
-				}
 
-				.footer__innovista__logo img {
-					width: 100%;
-				}
+    .footer__innovista {
+        background-color: #fff;
+        color: rgb(58, 58, 58);
+    }
+
+        .footer__innovista p {
+            margin: 5px 0;
+        }
+
+            .footer__innovista__text {
+                font-size: 0.65em;
+                float: left;
+                padding: 4%;
+                width: 75%;
+            }
+
+                .footer__innovista__text a {
+                    color: rgb(58, 58, 58);
+                    border-bottom: 1px solid rgb(58, 58, 58);
+                }
+
+                    .footer__innovista__text a:hover {
+                        border-color: rgb(246, 141, 0);
+                    }
+
+            .footer__innovista__logo {
+                float: left;
+                padding: 4%;
+                width: 25%;
+            }
+
+                .footer__innovista__logo a:hover{
+                    border-bottom: none;
+                }
+
+                .footer__innovista__logo img {
+                    width: 100%;
+                }
 
 /**
- * Home page specifics
+ * Banner
  */
 
-.home-banner {
-	background: rgba(3, 3, 102, 0.7);
-	position: relative;
-	top: -1px;
-	padding: 0;
-	color: white;
-	font-size: 26px;
-	z-index: 0;
+.banner {
+    position: relative;
 }
 
-	.slider {
-		position: relative;
-		overflow: hidden;
+    .banner__hero {
+        max-height: 750px;
+        overflow: hidden;
+    }
 
-		width: 100%;
-		height: 0;
-		padding-bottom: 60%;
-	}
+        .banner__hero img {
+            width: 100%;
+        }
 
-		.slider__slide {
+    .banner__overlay {
+        bottom: 0;
+        background: rgba(34, 32, 95, 0.7);
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
 
-		}
+        .banner__overlay__text {
+            bottom: 0;
+            color: white;
+            position: absolute;
+            padding: 40px;
+            width: 75%;
+            text-align: left;
+        }
 
-			/* This link wraps the whole slide */
-			.slider__slide a {
-				color: #fff;
-			}
+        .banner__overlay h1 {
+            font-weight: normal;
+            font-size: 3.5em;
+            text-transform: uppercase;
+            text-align: left;
+        }
 
-				.slider__slide a:hover .btn{
-					background-color: rgba(255, 255, 255, 0.3);
-				}
+        .banner__overlay .btn{
+            border-radius: 4px;
+            margin-top: 1em;
+            display: inline-block;
+            font-style: oblique;
+            text-transform: none;
+        }
 
-			.slider__slide img {
-				transition: all 0.2s linear;
-				width: 100%;
-				transform: scale(1.1);
-				animation: fadein 2s;
-			}
+    .banner--home {}
 
-				.slider__slide a:hover img {
-					transform: scale(1);
-				}
+        .banner--home .banner__overlay__text {
+            padding: 5% 10%;
+            text-align: center;
+            width:100%;
+        }
 
-			.slider__slide__overlay {
-				transition: all 0.2s linear;
-				bottom: 0;
-				background: rgba(3, 3, 102, 0.7);
-				padding: 2% 0;
-				position: absolute;
-				top: 0;
-				width: 100%;
-			}
 
-				.slider__slide a:hover .slider__slide__overlay {
-					background: rgba(3, 3, 102, 0.8);
-				}
-
-				.slider__slide__overlay__text {
-					bottom: 4%;
-					padding: 0 15%;
-					position: absolute;
-					text-align: center;
-				}
-
-					.slider__slide__overlay__text h1, .slider__slide__overlay__text p {
-						padding: 1% 0;
-					}
-
-					.slider__slide__overlay__text h1 {
-						font-weight: normal;
-						font-size: 2.5em;
-						text-transform: uppercase;
-						text-align: left;
-					}
-
-					.slider__slide__overlay__text .btn {
-						border-radius: 5px;
-						font-style: italic;
-						text-transform: none;
-						padding: 1.5% 2%;
-					}
+    .banner--400 .banner__hero {
+        max-height: 400px;
+    }
 
 .infobox {
-	float: left;
-	overflow: hidden;
-	position: relative;
+    float: left;
+    overflow: hidden;
+    position: relative;
 
-	width: 100%;
-	height: 0;
-	padding-bottom: 100%;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
 }
 
-	.infobox a {
-		text-decoration: none;
-		color: #fff;
-	}
+    .infobox a {
+        text-decoration: none;
+        color: #fff;
+    }
 
-	.infobox img {
-		transition: all 0.2s linear;
-		width: 100%;
-	}
+    .infobox img {
+        transition: all 0.2s linear;
+        width: 100%;
+    }
 
-	.infobox__content {
-		bottom: 0;
-		background-color: rgba(66, 193, 200, 0.7);
-		padding: 2% 4%;
-		position: absolute;
-		width: 100%;
-	}
+    .infobox__content {
+        bottom: 0;
+        background-color: rgba(66, 193, 200, 0.7);
+        padding: 2% 4%;
+        position: absolute;
+        width: 100%;
+    }
 
-		.infobox__content h2 {
-			color: #fff;
-			font-size: 20px;
-			line-height: 24px;
-			text-transform: uppercase;
-		}
+        .infobox__content h2 {
+            color: #fff;
+            font-size: 20px;
+            line-height: 24px;
+            text-transform: uppercase;
+        }
 
-		.infobox__content p {
-			color: #fff;
-			font-size: 14px;
-			line-height: 16px;
-			margin-top: 1%;
-		}
+        .infobox__content p {
+            color: #fff;
+            font-size: 14px;
+            line-height: 16px;
+            margin-top: 1%;
+        }
 
 .infobox:hover img {
-	 -webkit-filter: grayscale(50%); filter: grayscale(50%);
-	transform: scale(1.1);
+     -webkit-filter: grayscale(50%); filter: grayscale(50%);
+    transform: scale(1.1);
 }
 
 .infobox--50 {
-	width: 50%;
-	height: 0;
-	padding-bottom: 50%;
+    width: 50%;
+    height: 0;
+    padding-bottom: 50%;
 }
 
-	.infobox--50 .infobox__content { padding: 4% 8%; }
+    .infobox--50 .infobox__content { padding: 4% 8%; }
 
 .infobox--33 {
-	width: 33.33333%;
-	height: 0;
-	padding-bottom: 33.33333%;
+    width: 33.33333%;
+    height: 0;
+    padding-bottom: 33.33333%;
 }
 
-	.infobox--33 .infobox__content { padding: 3% 6%; }
+    .infobox--33 .infobox__content { padding: 3% 6%; }
 
 .infobox--story {}
-	.infobox--story .infobox__content {
-		background-color: rgba(225, 30, 85, 0.7);
-	}
+    .infobox--story .infobox__content {
+        background-color: rgba(225, 30, 85, 0.7);
+    }
 
 
 
@@ -347,37 +326,37 @@ footer {
 /* Buttons */
 
 .btn {
-	border: 3px solid white;
-	color: white;
-	font-size: 16px;
-	text-decoration: none;
-	text-transform: uppercase;
-	padding: 10px;
-	margin: 5px 2px;
+    border: 3px solid white;
+    color: white;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px;
+    margin: 5px 2px;
 }
 
-	.btn:hover{
-		background-color: rgba(255, 255, 255, 0.3);
-	}
+    .btn:hover{
+        background-color: rgba(255, 255, 255, 0.3);
+    }
 
 /* Clearfix */
 .cf {
     *zoom: 1;
 }
-	.cf:before,
-	.cf:after {
-	    content: " "; /* 1 */
-	    display: table; /* 2 */
-	}
+    .cf:before,
+    .cf:after {
+        content: " "; /* 1 */
+        display: table; /* 2 */
+    }
 
-	.cf:after {
-	    clear: both;
-	}
+    .cf:after {
+        clear: both;
+    }
 
 /* fade in */
 @keyframes fadein {
-	from { opacity: 0; }
-	to { opacity: 1; }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 }
 

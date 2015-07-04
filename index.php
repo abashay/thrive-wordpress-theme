@@ -16,6 +16,26 @@
 
 get_header(); ?>
 
+	<section class="banner banner--400">
+
+		<div class="banner__hero">
+			<img src="<?php echo get_template_directory_uri(); ?>/assets/banner.jpg" alt="" />
+		</div>
+
+		<div class="banner__overlay">
+
+			<div class="banner__overlay__text">
+
+				<h1>Stories</h1>
+
+				<p>This is an intro paragraph</p>
+
+			</div>
+
+		</div>
+
+	</section>
+
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
