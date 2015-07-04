@@ -82,15 +82,6 @@ function thrive_setup() {
 	//	'aside', 'image', 'video', 'quote', 'link', 'gallery', 'status', 'audio', 'chat'
 	//) );
 
-	//$color_scheme  = twentyfifteen_get_color_scheme();
-	//$default_color = trim( $color_scheme[0], '#' );
-
-	// Setup the WordPress core custom background feature.
-	//add_theme_support( 'custom-background', apply_filters( 'twentyfifteen_custom_background_args', array(
-	//	'default-color'      => $default_color,
-	//	'default-attachment' => 'fixed',
-	//) ) );
-
 }
 endif; // twentyfifteen_setup
 add_action( 'after_setup_theme', 'thrive_setup' );
@@ -335,4 +326,25 @@ function thrive_featured_posts($count = 1) {
 		)
 	);
 	return get_posts( $args );
+}
+
+
+/*
+ * Echos a picture element for an infobox
+ */
+function thrive_infobox_picture($media_id) {
+	$xlarge = wp_get_attachment_image_src($media_id, 'square--x-large', false);
+	$large = wp_get_attachment_image_src($media_id, 'square--large', false);
+	$small = wp_get_attachment_image_src($media_id, 'square--small', false);
+
+	echo '
+		<picture>
+			<!--[if IE 9]><video style="display: none;"><![endif]-->
+			<source srcset="' . $xlarge[0] . '" media="(min-width: 1000px)">
+			<source srcset="' . $large[0] . '" media="(min-width: 800px)">
+			<source srcset="' . $small[0] . '" media="(min-width: 400px)">
+			<!--[if IE 9]></video><![endif]-->
+			<img src="' . $small[0] . '" alt="" />
+		</picture>
+	';
 }

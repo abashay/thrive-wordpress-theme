@@ -11,7 +11,7 @@
  * @since Twenty Fifteen 1.0
  */
 
-$featured_posts = thrive_featured_posts();
+$featured_posts = thrive_featured_posts(1);
 
 get_header(); ?>
 
@@ -61,8 +61,13 @@ get_header(); ?>
 			?>
 
 			<div class="infobox infobox--50 infobox--story">
-				<a href="#">
-					<img src="http://loremflickr.com/500/500?two" alt="" />
+				<?php echo sprintf('<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ); ?>
+					<?php
+						if ( has_post_thumbnail() ) {
+							$thumb_id = get_post_thumbnail_id();
+							thrive_infobox_picture($thumb_id);
+						}
+					?>
 					<div class="infobox__content">
 						<h2><?php echo $post->post_title; ?></h2>
 						<?php if($excerpt){ echo "<p>" . $excerpt . "</p>"; } ?>
