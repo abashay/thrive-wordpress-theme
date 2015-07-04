@@ -29,6 +29,15 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
 }
 
+p {
+    margin-bottom: 1em;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+
 header {
     width: 100%;
     color: #fff;
@@ -362,6 +371,14 @@ footer {
     .post h2 {
         margin-bottom: 1em;
     }
+
+    .post__content {
+        padding: 40px;
+    }
+
+        .post__content img {
+            width: 100%;
+        }
 
     .post .readmore {
         color: rgba(53, 205, 204, 1);

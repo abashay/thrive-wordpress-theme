@@ -73,21 +73,7 @@ get_header(); ?>
 							<?php the_title( '<h2 class="postlist__post__title">', '</h2>' ); ?>
 
 							<div class="postlist__post__snippet">
-								<?php
-									/* translators: %s: Name of current post */
-									the_content(
-										sprintf('Continue reading %s', the_title( '<span class="screen-reader-text">', '</span>', false ) )
-									 );
-
-									wp_link_pages( array(
-										'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentyfifteen' ) . '</span>',
-										'after'       => '</div>',
-										'link_before' => '<span>',
-										'link_after'  => '</span>',
-										'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'twentyfifteen' ) . ' </span>%',
-										'separator'   => '<span class="screen-reader-text">, </span>',
-									) );
-								?>
+								<p><?php echo strip_tags(get_the_excerpt()); ?></p>
 							</div>
 
 							<div class="postlist__post__meta">
