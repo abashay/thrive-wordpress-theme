@@ -43,26 +43,26 @@ header {
 		color: #fff;
 		text-decoration: none;
 	}
-	
+
 	header nav, header div, header ul, header li{
 		display: inline;
 		text-transform: uppercase;
 	}
-	
+
 	header ul { position: absolute; top: 50px; z-index: 1; right: 40px; }
-	
+
 	header li {
 		display: inline-block;
 		font-size: 16px;
 		font-weight: bold;
 	}
-	
+
 	header li a:hover{ border-bottom: 2px solid #fff;}
-	
+
 	header li:last-child a { background-color: rgb(52, 203, 204); color: white; margin-left: 10px;}
 	header li:last-child a:hover { background-color: rgb(1, 152, 153); border-bottom: 0;}
-	
-		header li a { 
+
+		header li a {
 			padding: 10px;
 			display: inherit;
 		}
@@ -142,15 +142,15 @@ footer {
 			padding: 4%;
 			width: 25%;
 		}
-			
+
 
 	.footer__innovista {
 		background-color: #fff;
 		color: rgb(58, 58, 58);
 	}
 
-		.footer__innovista a {
-			color: rgb(246, 141, 0);
+		.footer__innovista p {
+			margin: 5px 0;
 		}
 
 			.footer__innovista__text {
@@ -159,16 +159,33 @@ footer {
 				width: 75%;
 			}
 
+				.footer__innovista__text a {
+					color: rgb(58, 58, 58);
+					border-bottom: 1px solid rgb(58, 58, 58);
+				}
+
+					.footer__innovista__text a:hover {
+						border-color: rgb(246, 141, 0);
+					}
+
 			.footer__innovista__logo {
 				float: left;
 				padding: 4%;
 				width: 25%;
 			}
 
+				.footer__innovista__logo a:hover{
+					border-bottom: none;
+				}
+
+				.footer__innovista__logo img {
+					width: 100%;
+				}
+
 /**
  * Home page specifics
  */
- 
+
 .home-banner {
 	background: rgba(3, 3, 102, 0.7);
 	position: relative;
@@ -182,36 +199,36 @@ footer {
 	.slider {
 		position: relative;
 		overflow: hidden;
-		
+
 		width: 100%;
 		height: 0;
 		padding-bottom: 60%;
 	}
-	
+
 		.slider__slide {
-			
+
 		}
-			
+
 			/* This link wraps the whole slide */
 			.slider__slide a {
 				color: #fff;
 			}
-			
+
 				.slider__slide a:hover .btn{
 					background-color: rgba(255, 255, 255, 0.3);
 				}
-		
+
 			.slider__slide img {
 				transition: all 0.2s linear;
 				width: 100%;
 				transform: scale(1.1);
 				animation: fadein 2s;
 			}
-			
+
 				.slider__slide a:hover img {
 					transform: scale(1);
 				}
-		
+
 			.slider__slide__overlay {
 				transition: all 0.2s linear;
 				bottom: 0;
@@ -221,18 +238,18 @@ footer {
 				top: 0;
 				width: 100%;
 			}
-			
+
 				.slider__slide a:hover .slider__slide__overlay {
 					background: rgba(3, 3, 102, 0.8);
 				}
-			
+
 				.slider__slide__overlay__text {
 					bottom: 4%;
 					padding: 0 15%;
 					position: absolute;
 					text-align: center;
 				}
-				
+
 					.slider__slide__overlay__text h1, .slider__slide__overlay__text p {
 						padding: 1% 0;
 					}
@@ -250,12 +267,12 @@ footer {
 						text-transform: none;
 						padding: 1.5% 2%;
 					}
- 		
+
 .infobox {
 	float: left;
 	overflow: hidden;
 	position: relative;
-	
+
 	width: 100%;
 	height: 0;
 	padding-bottom: 100%;
@@ -270,7 +287,7 @@ footer {
 		transition: all 0.2s linear;
 		width: 100%;
 	}
-	
+
 	.infobox__content {
 		bottom: 0;
 		background-color: rgba(66, 193, 200, 0.7);
@@ -278,26 +295,26 @@ footer {
 		position: absolute;
 		width: 100%;
 	}
-	
+
 		.infobox__content h2 {
 			color: #fff;
 			font-size: 20px;
 			line-height: 24px;
 			text-transform: uppercase;
 		}
-		
+
 		.infobox__content p {
 			color: #fff;
 			font-size: 14px;
 			line-height: 16px;
 			margin-top: 1%;
 		}
-		
-.infobox:hover img { 
+
+.infobox:hover img {
 	 -webkit-filter: grayscale(50%); filter: grayscale(50%);
 	transform: scale(1.1);
-} 
- 
+}
+
 .infobox--50 {
 	width: 50%;
 	height: 0;
@@ -318,12 +335,12 @@ footer {
 	.infobox--story .infobox__content {
 		background-color: rgba(225, 30, 85, 0.7);
 	}
-	
 
 
 
 
-/* 
+
+/*
 **Utility Belt
 **/
 
@@ -352,7 +369,7 @@ footer {
 	    content: " "; /* 1 */
 	    display: table; /* 2 */
 	}
-	
+
 	.cf:after {
 	    clear: both;
 	}
@@ -363,4 +380,4 @@ footer {
 	to { opacity: 1; }
 }
 }
-	
+

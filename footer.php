@@ -1,7 +1,7 @@
 	</div><!-- .content_container -->
 
 	<footer class="footer" role="contentinfo">
-		
+
 		<section class="footer__thrive">
 			<?php if ( has_nav_menu( 'footer-a' ) || has_nav_menu( 'footer-b' ) ) : ?>
 				<nav class="footer__thrive__navigation" role="navigation">
@@ -49,11 +49,11 @@
 
 			<div class="footer__innovista__logo">
 				<a href="http://innovista.org" target="_blank">
-					<img src="#" alt="Innovista" />
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/innovista-logo.png" alt="Innovista" />
 				</a>
 			</div>
 		</section>
-		
+
 	</footer>
 
 	<?php wp_footer(); ?>
