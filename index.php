@@ -59,7 +59,7 @@ get_header(); ?>
 							<?php the_title( '<h2 class="postlist__post__title">', '</h2>' ); ?>
 
 							<div class="postlist__post__snippet">
-								<p><?php echo strip_tags(get_the_excerpt()); ?></p>
+								<p><?php echo the_excerpt_rss(); ?></p>
 							</div>
 
 							<div class="postlist__post__meta">
