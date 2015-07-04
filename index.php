@@ -36,46 +36,70 @@ get_header(); ?>
 
 	</section>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+	<section class="postlist" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
-			<?php if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-			<?php endif; ?>
+			<?php while ( have_posts() ) : the_post(); ?>
+
+				<?php echo sprintf('<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ); ?>
+					<article class="postlist__post cf" id="post-<?php the_ID(); ?>">
+
+						<div class="postlist__post__thumbnail infobox infobox--25">
+							<img src="http://loremflickr.com/500/500?one" alt>
+						</div>
+
+						<div class="post">
+
+							<?php the_title( '<h2 class="postlist__post__title">', '</h2>' ); ?>
+
+							<div class="postlist__post__snippet">
+								<?php
+									/* translators: %s: Name of current post */
+									the_content( sprintf('Continue reading %s'),
+										the_title( '<span class="screen-reader-text">', '</span>', false )
+									 );
+
+									wp_link_pages( array(
+										'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'twentyfifteen' ) . '</span>',
+										'after'       => '</div>',
+										'link_before' => '<span>',
+										'link_after'  => '</span>',
+										'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'twentyfifteen' ) . ' </span>%',
+										'separator'   => '<span class="screen-reader-text">, </span>',
+									) );
+								?>
+							</div>
+
+							<div class="postlist__post__meta">
+								<p class="readmore">Read more</p>
+								<?php edit_post_link( __( 'Edit', 'twentyfifteen' ), '<span class="edit-link">', '</span>' ); ?>
+							</div>
+
+						</div>
+
+					</article>
+				</a>
+
+			<?php endwhile; // End the loop. ?>
+
 
 			<?php
-			// Start the loop.
-			while ( have_posts() ) : the_post();
-
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'content', get_post_format() );
-
-			// End the loop.
-			endwhile;
-
 			// Previous/next page navigation.
 			the_posts_pagination( array(
-				'prev_text'          => __( 'Previous page', 'twentyfifteen' ),
-				'next_text'          => __( 'Next page', 'twentyfifteen' ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyfifteen' ) . ' </span>',
+				'prev_text'          => 'Previous page',
+				'next_text'          => 'Next page',
+				'before_page_number' => '<span class="meta-nav screen-reader-text">Page</span>',
 			) );
 
-		// If no content, include the "No posts found" template.
-		else :
-			get_template_part( 'content', 'none' );
+			?>
 
-		endif;
-		?>
+		<?php else : // If no content, include the "No posts found" template. ?>
 
-		</main><!-- .site-main -->
-	</div><!-- .content-area -->
+			<?php get_template_part( 'content', 'none' ); ?>
+
+		<?php endif; ?>
+
+	</section>
 
 <?php get_footer(); ?>

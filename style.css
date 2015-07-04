@@ -24,6 +24,11 @@ body, html {
     height: 100%;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
 header {
     width: 100%;
     color: #fff;
@@ -310,10 +315,52 @@ footer {
 
     .infobox--33 .infobox__content { padding: 3% 6%; }
 
+.infobox--25 {
+    width: 25%;
+    height: 0;
+    padding-bottom: 25%;
+}
+
 .infobox--story {}
     .infobox--story .infobox__content {
         background-color: rgba(225, 30, 85, 0.7);
     }
+
+
+.postlist {}
+
+    .postlist a {
+        color: black;
+        text-decoration: none;
+    }
+
+    .postlist__post {
+        border-bottom: 1px solid #ccc;
+    }
+
+        .postlist__post:last-child(){
+            border-bottom: none;
+        }
+
+        .postlist__post .post{
+            float: left;
+            padding: 40px;
+            width: 75%;
+        }
+
+.post{}
+
+    .post h2 {
+        margin-bottom: 1em;
+    }
+
+    .post .readmore {
+        color: rgba(53, 205, 204, 1);
+        font-style: oblique;
+        font-weight: bold;
+        margin-top: 1em;
+    }
+
 
 
 
