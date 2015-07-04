@@ -55,6 +55,12 @@ function thrive_setup() {
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 825, 510, true );
 
+	add_image_size( 'square--x-large', 850, 850, true );
+	add_image_size( 'square--large', 600, 600, true );
+	add_image_size( 'square--medium', 400, 400, true );
+	add_image_size( 'square--small', 250, 250, true );
+	add_image_size( 'square--x-small', 100, 100, true );
+
 	// Navigation across the site...
 	register_nav_menus( array(
 		'primary' => 'Banner navigation',

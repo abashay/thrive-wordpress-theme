@@ -46,7 +46,26 @@ get_header(); ?>
 					<article class="postlist__post cf" id="post-<?php the_ID(); ?>">
 
 						<div class="postlist__post__thumbnail infobox infobox--25">
-							<img src="http://loremflickr.com/500/500?one" alt>
+							<?php
+								if ( has_post_thumbnail() ) {
+									$thumb_id = get_post_thumbnail_id();
+									$xlarge = wp_get_attachment_image_src($thumb_id, 'square--x-large', false);
+									$large = wp_get_attachment_image_src($thumb_id, 'square--large', false);
+									$medium = wp_get_attachment_image_src($thumb_id, 'square--medium', false);
+									$small = wp_get_attachment_image_src($thumb_id, 'square--small', false);
+									$xsmall = wp_get_attachment_image_src($thumb_id, 'square--x-small', false);
+								}
+
+							?>
+
+							<picture>
+								<!--[if IE 9]><video style="display: none;"><![endif]-->
+								<source srcset="<?php echo $xlarge[0] ?>" media="(min-width: 1000px)">
+								<source srcset="<?php echo $large[0] ?>" media="(min-width: 800px)">
+								<source srcset="<?php echo $small[0] ?>" media="(min-width: 400px)">
+								<!--[if IE 9]></video><![endif]-->
+								<img src="<?php echo $small[0] ?>" alt="" />
+							</picture>
 						</div>
 
 						<div class="post">
@@ -56,8 +75,8 @@ get_header(); ?>
 							<div class="postlist__post__snippet">
 								<?php
 									/* translators: %s: Name of current post */
-									the_content( sprintf('Continue reading %s'),
-										the_title( '<span class="screen-reader-text">', '</span>', false )
+									the_content(
+										sprintf('Continue reading %s', the_title( '<span class="screen-reader-text">', '</span>', false ) )
 									 );
 
 									wp_link_pages( array(

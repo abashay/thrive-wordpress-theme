@@ -334,6 +334,15 @@ footer {
         text-decoration: none;
     }
 
+        .postlist a:hover .infobox img{
+            -webkit-filter: grayscale(50%); filter: grayscale(50%);
+            transform: scale(1.1);
+        }
+
+        .postlist a:hover .readmore{
+            text-decoration: underline;
+        }
+
     .postlist__post {
         border-bottom: 1px solid #ccc;
     }
