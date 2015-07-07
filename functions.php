@@ -30,16 +30,11 @@
  *
  * @since Twenty Fifteen 1.0
  */
-if ( ! isset( $content_width ) ) {
-	$content_width = 660;
-}
 
-/**
- * Twenty Fifteen only works in WordPress 4.1 or later.
- */
-if ( version_compare( $GLOBALS['wp_version'], '4.1-alpha', '<' ) ) {
-	require get_template_directory() . '/inc/back-compat.php';
-}
+
+$GLOBALS['general_image'] = get_template_directory_uri() . '/assets/banner_sq.jpg';
+
+
 
 if ( ! function_exists( 'thrive_setup' ) ) :
 // Sets up theme defaults and registers support for various WordPress features.
@@ -64,6 +59,7 @@ function thrive_setup() {
 	// Navigation across the site...
 	register_nav_menus( array(
 		'primary' => 'Banner navigation',
+		'about-nav' => 'About sidebar',
 		'footer-a' => 'Footer (alpha)',
 		'footer-b' => 'Footer (beta)'
 	) );
@@ -135,4 +131,73 @@ function thrive_infobox_picture($media_id) {
 			<img src="' . $small[0] . '" alt="" />
 		</picture>
 	';
+}
+
+
+
+class thrive_custom_walker_nav_menu extends Walker_Nav_Menu {
+	function start_el ( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+
+		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+
+		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+		$classes[] = 'menu-item-' . $item->ID;
+		$classes[] = 'infobox infobox--33';
+
+		/**
+		 * Filter the CSS class(es) applied to a menu item's list item element.
+		 */
+		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth ) );
+		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+
+		/**
+		 * Filter the ID applied to a menu item's list item element.
+		 */
+		$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args, $depth );
+		$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
+
+		$output .= $indent . '<li' . $id . $class_names .'>';
+
+		$atts = array();
+		$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
+		$atts['target'] = ! empty( $item->target )     ? $item->target     : '';
+		$atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
+		$atts['href']   = ! empty( $item->url )        ? $item->url        : '';
+
+		/**
+		 * Filter the HTML attributes applied to a menu item's anchor element.
+		 */
+		$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args, $depth );
+
+		$attributes = '';
+		foreach ( $atts as $attr => $value ) {
+			if ( ! empty( $value ) ) {
+				$value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+				$attributes .= ' ' . $attr . '="' . $value . '"';
+			}
+		}
+
+		/**
+		 * Select the featured image from the database
+		 */
+		$featured_image = wp_get_attachment_image_src(get_post_thumbnail_id($item->object_id), 'square--large', false);
+		if ($featured_image == "") { $featured_image = $GLOBALS['general_image']; }
+		else { $featured_image = $featured_image[0]; }
+
+		$item_output = $args->before;
+		$item_output .= '<a'. $attributes .'><img src="' . $featured_image . '" alt="" /><div class="infobox__content"><h2>';
+		/** This filter is documented in wp-includes/post-template.php */
+		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+		$item_output .= '</h2></div></a>';
+		$item_output .= $args->after;
+
+		/**
+		 * Filter a menu item's starting output.
+		 */
+		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+	}
+
+	function end_el( &$output, $item, $depth = 0, $args = array() ) {
+		$output .= "</li>\n";
+	}
 }

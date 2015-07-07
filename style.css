@@ -30,6 +30,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
+    line-height: 150%;
     margin-bottom: 1em;
 }
 
@@ -388,6 +389,32 @@ footer {
     }
 
 
+@media all and (min-width: 800px) {
+
+    p {
+        font-size: 1.25em;
+        line-height: 175%;
+        margin-bottom: 1.25em;
+    }
+
+    .g_main_content, .g_sidebar {
+        float: left;
+    }
+
+    .g_main_content {
+        width: 67%;
+    }
+
+    .g_sidebar {
+        width: 33%;
+    }
+
+        .g_sidebar .infobox {
+            width: 100%; /* infoboxes must always be 100% width */
+            padding-bottom: 100%;
+        }
+
+}
 
 
 

@@ -22,6 +22,14 @@
 
 					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
+					<?php
+						$banner_intro = get_post_meta( get_the_ID(), 'banner-text', true );
+						// check if the custom field has a value
+						if( ! empty( $banner_intro ) ) {
+						  echo sprintf('<p>%s</p>', $banner_intro);
+						}
+					?>
+
 				</div>
 
 			</div>
