@@ -49,7 +49,7 @@ get_header(); ?>
 							<?php
 								if ( has_post_thumbnail() ) {
 									$thumb_id = get_post_thumbnail_id();
-									thrive_infobox_picture($thumb_id);
+									echo thrive_infobox_picture($thumb_id);
 								}
 							?>
 						</div>

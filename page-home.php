@@ -17,7 +17,7 @@ get_header(); ?>
 
 	<section class="banner banner--home">
 
-		<a href="/">
+		<a href="/about/">
 
 			<div class="banner__hero">
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/banner.jpg" alt="" />
@@ -65,7 +65,7 @@ get_header(); ?>
 					<?php
 						if ( has_post_thumbnail() ) {
 							$thumb_id = get_post_thumbnail_id();
-							thrive_infobox_picture($thumb_id);
+							echo thrive_infobox_picture($thumb_id);
 						}
 					?>
 					<div class="infobox__content">

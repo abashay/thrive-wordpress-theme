@@ -56,6 +56,9 @@ function thrive_setup() {
 	add_image_size( 'square--small', 250, 250, true );
 	add_image_size( 'square--x-small', 100, 100, true );
 
+	// Allow poges to have excerpts
+	add_post_type_support('page', 'excerpt');
+
 	// Navigation across the site...
 	register_nav_menus( array(
 		'primary' => 'Banner navigation',
@@ -69,14 +72,15 @@ function thrive_setup() {
 		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
 	) );
 
+
 	/*
 	 * Enable support for Post Formats.
 	 *
 	 * See: https://codex.wordpress.org/Post_Formats
 	 */
-	//add_theme_support( 'post-formats', array(
-	//	'aside', 'image', 'video', 'quote', 'link', 'gallery', 'status', 'audio', 'chat'
-	//) );
+	// add_theme_support( 'post-formats', array(
+	// 	'aside', 'image', 'video', 'quote', 'link', 'gallery', 'status', 'audio', 'chat'
+	// ) );
 
 }
 endif; // twentyfifteen_setup
@@ -121,7 +125,7 @@ function thrive_infobox_picture($media_id) {
 	$large = wp_get_attachment_image_src($media_id, 'square--large', false);
 	$small = wp_get_attachment_image_src($media_id, 'square--small', false);
 
-	echo '
+	return '
 		<picture>
 			<!--[if IE 9]><video style="display: none;"><![endif]-->
 			<source srcset="' . $xlarge[0] . '" media="(min-width: 1000px)">
@@ -133,6 +137,51 @@ function thrive_infobox_picture($media_id) {
 	';
 }
 
+
+function thrive_get_subpages($atts) {
+
+	// Set up some default values
+	$a = shortcode_atts( array(
+        'width' => '50',
+    ), $atts );
+
+	// Accessed via the loop so functions like `the_id()` will work
+
+	// Step one get a list of subpages...
+	$args = array(
+		'sort_order' => 'asc',
+		'sort_column' => 'menu_order',
+		'hierarchical' => 1,
+		'parent' => get_the_id(),
+		'exclude_tree' => '',
+		'number' => '',
+		'offset' => 0,
+		'post_type' => 'page',
+		'post_status' => 'publish'
+	);
+	$children = get_pages($args);
+
+	$output = '<div class="break-site-padding">';
+	foreach ($children as $subpage) {
+
+
+
+		$output .= sprintf('<div class="infobox infobox--%s"><a href="%s">', $atts['width'], get_page_link( $subpage->ID ));
+
+		if ( has_post_thumbnail($subpage->ID) ) {
+			$thumb_id = get_post_thumbnail_id($subpage->ID);
+			$output .= thrive_infobox_picture($thumb_id);
+		}
+
+		$output .= sprintf('<div class="infobox__content"><h2>%s</h2></div>', $subpage->post_title);
+		$output .= '</a></div>';
+
+	}
+	$output .= '</div>';
+	return $output;
+
+}
+add_shortcode( 'infobox_subpages', 'thrive_get_subpages' );
 
 
 class thrive_infobox_walker_nav_menu extends Walker_Nav_Menu {

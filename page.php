@@ -74,7 +74,7 @@ while ( have_posts() ) : the_post(); ?>
             ) );
         }
 
-    } else { ?>
+    } else {  /*?>
 
         NOT ABOUT SECTION
 
@@ -105,7 +105,7 @@ while ( have_posts() ) : the_post(); ?>
             </a>
         </div>
 
-    <?php } // End section check ?>
+    <?php */} // End section check ?>
 </section>
 
 
