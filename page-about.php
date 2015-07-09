@@ -53,59 +53,14 @@ while ( have_posts() ) : the_post(); ?>
 </section>
 
 
-<section class="post__content g_main_content">
-
-    <?php the_content(); ?>
-
-</section>
-
-<section class="g_sidebar">
+<section class="">
 
     <?php
-        // If we are on the about section then we should should an about section navigation
-        if ( preg_match( '#^about(/.+)?$#', $wp->request ) ) {
-
-
-        if ( has_nav_menu( 'about-nav' ) ) {
-            wp_nav_menu( array(
-                'theme_location' => 'about-nav',
-                'walker' => new thrive_infobox_walker_nav_menu,
-                'infobox_size' => 33
-            ) );
-        }
-
-    } else { ?>
-
-        NOT ABOUT SECTION
-
-        <div class="infobox infobox--33">
-            <a href="#">
-                <img src="http://loremflickr.com/500/500?one" alt="" />
-                <div class="infobox__content">
-                    <h2>Optional featured page 2: eg event</h2>
-                </div>
-            </a>
-        </div>
-
-        <div class="infobox infobox--33">
-            <a href="#">
-                <img src="http://loremflickr.com/500/500?two" alt="" />
-                <div class="infobox__content">
-                    <h2>Optional featured page 2: eg event</h2>
-                </div>
-            </a>
-        </div>
-
-        <div class="infobox infobox--33">
-            <a href="#">
-                <img src="http://loremflickr.com/500/500?three" alt="" />
-                <div class="infobox__content">
-                    <h2>Optional featured page 2: eg event</h2>
-                </div>
-            </a>
-        </div>
-
-    <?php } // End section check ?>
+	    wp_nav_menu( array(
+	                'theme_location' => 'about-nav',
+	                'walker' => new thrive_infobox_walker_nav_menu,
+	    ) );
+   	?>
 </section>
 
 

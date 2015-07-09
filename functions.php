@@ -135,14 +135,19 @@ function thrive_infobox_picture($media_id) {
 
 
 
-class thrive_custom_walker_nav_menu extends Walker_Nav_Menu {
+class thrive_infobox_walker_nav_menu extends Walker_Nav_Menu {
 	function start_el ( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+
+		$infobox_size = 50;
+		if ( isset($args->infobox_size) ) {
+			$infobox_size = $args->infobox_size;
+		}
 
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 		$classes[] = 'menu-item-' . $item->ID;
-		$classes[] = 'infobox infobox--33';
+		$classes[] = 'infobox infobox--' . $infobox_size;
 
 		/**
 		 * Filter the CSS class(es) applied to a menu item's list item element.
