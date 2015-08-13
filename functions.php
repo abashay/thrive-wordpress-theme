@@ -95,6 +95,9 @@ function thrive_styles_and_scripts() {
 
 	// Load our main stylesheet.
 	wp_enqueue_style( 'thrive-style', get_stylesheet_uri() );
+	
+	// Load javacript into the footer.
+	wp_enqueue_script( 'thrive-script', get_template_directory_uri() . '/js/script.js', array( 'jquery' ), '1.0.0', true);
 
 
 }
