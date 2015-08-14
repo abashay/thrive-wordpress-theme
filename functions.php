@@ -72,38 +72,66 @@ function thrive_setup() {
 		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
 	) );
 
+
+	$team_labels = array(
+		'name' 			=> 'Team Members',
+		'singular_name' => 'Team Member',
+		'menu_name' 	=> 'Thrive Team',
+		'add_new_item'	=> 'Add new team member',
+		'edit_item'		=> 'Edit team member',
+		'new_item' 		=> 'New team member',
+		'not_found' 	=> 'No team members found'
+	);
+
+	$endorsement_labels = array(
+		'name' 			=> 'Endorsements',
+		'singular_name' => 'Endorsement',
+		'menu_name' 	=> 'Endorsements',
+		'add_new_item'	=> 'Add new endorsement',
+		'edit_item'		=> 'Edit endorsement',
+		'new_item' 		=> 'New endorsement',
+		'not_found' 	=> 'No endorsement added'
+	);
+
 	register_post_type(
 		'thrive_team',
 		array(
-			'labels' => array(
-				'name' 			=> 'Team Members',
-				'singular_name' => 'Team Member',
-				'menu_name' 	=> 'Thrive Team',
-				'add_new_item'	=> 'Add new team member',
-				'edit_item'		=> 'Edit team member',
-				'new_item' 		=> 'New team member',
-				'not_found' 	=> 'No team members found'
-			),
-			'rewrite' => array(
-				'slug'			=> 'team-member'
-			),
+			'labels' => $team_labels,
+			'rewrite' => array( 'slug' => 'team-member' ),
 			'has_archive' => false,
 			'exclude_from_search' => true,
 			'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'),
-			// 'taxonomies' => array('category'),
-			'public' => true,
-			'publicly_queryable' => true,
+			'public' => false,
+			'publicly_queryable' => false,
 			'show_ui' => true,
 			'query_var' => true,
-			'menu_icon' => null,
-			'rewrite' => true,
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			'menu_position' => null,
+			'menu_icon' => 'dashicons-groups',
 		)
 	);
-
   	register_taxonomy( 'team_tags', 'thrive_team', array() );
+
+	register_post_type(
+		'thrive_endorsement',
+		array(
+			'labels' => $endorsement_labels,
+			'rewrite' => array( 'slug' => 'endorsements' ),
+			'has_archive' => false,
+			'exclude_from_search' => true,
+			'supports' => array('title', 'editor', 'thumbnail'),
+			'public' => false,
+			'publicly_queryable' => false,
+			'show_ui' => true,
+			'query_var' => true,
+			'capability_type' => 'post',
+			'hierarchical' => false,
+			'menu_position' => null,
+			'menu_icon' => 'dashicons-testimonial',
+		)
+	);
+  	register_taxonomy( 'endorsement_tags', 'thrive_endorsement', array() );
 
 }
 endif; // twentyfifteen_setup
@@ -192,7 +220,7 @@ function thrive_get_subpages($atts) {
      );
 
     $children = new WP_Query( $args );
-	return thrive_return_post_infobox( $children->posts, $atts['width'] );
+	return thrive_return_post_infobox( $children->posts, $atts );
 
 }
 add_shortcode( 'infobox_subpages', 'thrive_get_subpages' );
@@ -215,16 +243,65 @@ function thrive_get_posts($atts) {
 		'post_status'    => 'publish'
      );
 
-	return thrive_return_post_infobox( get_posts( $args ), $atts['width'] );
+	return thrive_return_post_infobox( get_posts( $args ), $atts );
 }
 add_shortcode( 'infobox_posts', 'thrive_get_posts' );
 
 
-function thrive_return_post_infobox($wp_array, $infobox_width){
+function thrive_get_endorsements($atts) {
+
+	// Set up some default values
+	$a = shortcode_atts( array(
+        'width' => '50',
+    ), $atts );
+
+
+	$args = array(
+        'post_type'     => 'thrive_endorsement',
+        'sort_column' 	=> 'menu_order',
+        'orderby'		=> 'rand',
+		'post_status'   => 'publish',
+		'posts_per_page'=> 1
+     );
+
+    if ($atts['team'] != null) {
+    	$args['team_tags'] = $atts['team'];
+    }
+
+    $endorsement = get_posts( $args );
+
+    $output = '<div class="break-site-padding">';
+	foreach ($endorsement as $post) {
+
+		$classes = "infobox infobox--endorsement infobox--" . $atts['width'];
+
+		$output .= sprintf('<div class="%s">', $classes);
+		$output .= "<h1>What are people saying about us?</h1>";
+
+		$output .= '<div class="infobox__content">';
+
+		if ( has_post_thumbnail($post->ID) ) {
+			$thumb_id = get_post_thumbnail_id($post->ID);
+			$endorsement_img = wp_get_attachment_image_src($thumb_id, 'square--large', false);
+			$output .= sprintf('<div class="infobox--endorsement__roundedimg"><img src="%s" alt="" /></div>', $endorsement_img[0]);
+		}
+
+		$output .= sprintf('<p>%s</p><h2>%s</h2>', $post->post_content, str_replace(', ','<br />', $post->post_title));
+		$output .= '</div></div>';
+
+	}
+	$output .= '</div>';
+	return $output;
+
+}
+add_shortcode( 'infobox_endorsements', 'thrive_get_endorsements' );
+
+
+function thrive_return_post_infobox($wp_array, $atts){
 	$output = '<div class="break-site-padding">';
 	foreach ($wp_array as $post) {
 
-		$classes = "infobox infobox--" . $infobox_width;
+		$classes = "infobox infobox--" . $atts['width'];
 		if ($atts['cover']) {
 			$classes .= " infobox--cover";
 		}

@@ -345,6 +345,33 @@ footer {
         line-height: 75px;
     }
 
+.infobox--endorsement {
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.8);
+    color: rgb(255,255,255);
+    text-align: center;
+}
+
+    .infobox--endorsement h1{
+        font-size: 1.2em;
+        margin-top: 4%;
+    }
+
+    .infobox--endorsement p {
+        font-size: 18px;
+        line-height: 20px;
+    }
+
+    .infobox--endorsement__roundedimg {
+        width: 30%;
+        overflow: hidden;
+        margin: 10% auto 5%;
+    }
+
+    .infobox--endorsement .infobox__content {
+        background: none;
+    }
+
 .infobox--story {}
     .infobox--story .infobox__content {
         background-color: rgba(225, 30, 85, 0.7);
