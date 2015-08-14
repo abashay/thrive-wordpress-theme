@@ -226,12 +226,12 @@ footer {
     }
 
         .banner__overlay__text {
-            bottom: 0;
             color: white;
+            margin-top: 135px;
             position: absolute;
             padding: 40px;
-            width: 75%;
             text-align: left;
+            width: 75%;
         }
 
         .banner__overlay h1 {
@@ -260,6 +260,10 @@ footer {
 
     .banner--400 .banner__hero {
         max-height: 400px;
+    }
+
+    .banner--600 .banner__hero {
+        max-height: 600px;
     }
 
 .infobox {

@@ -43,14 +43,14 @@ get_header(); ?>
 
 	<section>
 
-		<div class="infobox infobox--50">
+		<?/*<div class="infobox infobox--50">
 			<a href="#">
 				<img src="http://loremflickr.com/500/500?one" alt="" />
 				<div class="infobox__content">
 					<h2>Optional featured page 2: eg event</h2>
 				</div>
 			</a>
-		</div>
+		</div>*/?>
 
 		<?php if(count($featured_posts) > 0): ?>
 			<?php foreach($featured_posts as $post) : ?>

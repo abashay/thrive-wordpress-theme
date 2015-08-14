@@ -72,15 +72,38 @@ function thrive_setup() {
 		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
 	) );
 
+	register_post_type(
+		'thrive_team',
+		array(
+			'labels' => array(
+				'name' 			=> 'Team Members',
+				'singular_name' => 'Team Member',
+				'menu_name' 	=> 'Thrive Team',
+				'add_new_item'	=> 'Add new team member',
+				'edit_item'		=> 'Edit team member',
+				'new_item' 		=> 'New team member',
+				'not_found' 	=> 'No team members found'
+			),
+			'rewrite' => array(
+				'slug'			=> 'team-member'
+			),
+			'has_archive' => false,
+			'exclude_from_search' => true,
+			'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'page-attributes'),
+			// 'taxonomies' => array('category'),
+			'public' => true,
+			'publicly_queryable' => true,
+			'show_ui' => true,
+			'query_var' => true,
+			'menu_icon' => null,
+			'rewrite' => true,
+			'capability_type' => 'post',
+			'hierarchical' => false,
+			'menu_position' => null,
+		)
+	);
 
-	/*
-	 * Enable support for Post Formats.
-	 *
-	 * See: https://codex.wordpress.org/Post_Formats
-	 */
-	// add_theme_support( 'post-formats', array(
-	// 	'aside', 'image', 'video', 'quote', 'link', 'gallery', 'status', 'audio', 'chat'
-	// ) );
+  	register_taxonomy( 'team_tags', 'thrive_team', array() );
 
 }
 endif; // twentyfifteen_setup
@@ -150,9 +173,8 @@ function thrive_get_subpages($atts) {
         'width' => '50',
     ), $atts );
 
-	// Accessed via the loop so functions like `the_id()` will work
-
 	if ($atts['parent'] == null) {
+		// Should be accessed via the loop so functions like `the_id()` will work
 		$atts['parent'] = get_the_id();
 	}
 
@@ -170,28 +192,86 @@ function thrive_get_subpages($atts) {
      );
 
     $children = new WP_Query( $args );
+	return thrive_return_post_infobox( $children->posts, $atts['width'] );
 
+}
+add_shortcode( 'infobox_subpages', 'thrive_get_subpages' );
+
+
+function thrive_get_posts($atts) {
+	// Set up some default values
+	$a = shortcode_atts( array(
+		'category' => 'news-and-updates',
+		'count' => 3,
+        'width' => '50',
+    ), $atts );
+
+	$args = array(
+		'posts_per_page' => $atts['count'],
+		'category_name'	 => $atts['category'],
+        'post_type'      => 'post',
+        'orderby'        => 'date',
+		'order'          => 'DESC',
+		'post_status'    => 'publish'
+     );
+
+	return thrive_return_post_infobox( get_posts( $args ), $atts['width'] );
+}
+add_shortcode( 'infobox_posts', 'thrive_get_posts' );
+
+
+function thrive_return_post_infobox($wp_array, $infobox_width){
 	$output = '<div class="break-site-padding">';
-	foreach ($children->posts as $subpage) {
+	foreach ($wp_array as $post) {
 
-		$classes = "infobox infobox--" . $atts['width'];
+		$classes = "infobox infobox--" . $infobox_width;
 		if ($atts['cover']) {
 			$classes .= " infobox--cover";
 		}
 
-		$output .= sprintf('<div class="%s"><a href="%s">', $classes, get_page_link( $subpage->ID ));
+		$output .= sprintf('<div class="%s"><a href="%s">', $classes, get_page_link( $post->ID ));
 
-		if ( has_post_thumbnail($subpage->ID) ) {
-			$thumb_id = get_post_thumbnail_id($subpage->ID);
+		if ( has_post_thumbnail($post->ID) ) {
+			$thumb_id = get_post_thumbnail_id($post->ID);
 			$output .= thrive_infobox_picture($thumb_id);
 		}
 
-		$output .= sprintf('<div class="infobox__content"><h2>%s</h2></div>', $subpage->post_title);
+		$output .= sprintf('<div class="infobox__content"><h2>%s</h2></div>', $post->post_title);
 		$output .= '</a></div>';
 
 	}
 	$output .= '</div>';
 	return $output;
-
 }
-add_shortcode( 'infobox_subpages', 'thrive_get_subpages' );
+
+
+function thrive_get_project_team($atts) {
+
+	$a = shortcode_atts( array(
+		'team' => null,
+    ), $atts );
+
+    $args = array(
+		'category_name'	=> $atts['category'],
+        'post_type'     => 'thrive_team',
+        'sort_column' 	=> 'menu_order',
+        'order'			=> 'ASC',
+		'post_status'   => 'publish'
+     );
+
+    if ($atts['team'] != null) {
+    	$args['team_tags'] = $atts['team'];
+    }
+
+    $team_members = get_posts( $args );
+
+    $output = '';
+    foreach ($team_members as $team) {
+
+    	$output .= '<h2>' . $team->post_title . '</h2>';
+    	$output .= '<p>' . $team->post_content . '</p>';
+    }
+
+	return $output;
+}
+add_shortcode( 'thrive_team', 'thrive_get_project_team' );

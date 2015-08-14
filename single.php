@@ -6,7 +6,7 @@
 
 	<article class="post">
 
-		<section class="banner banner--post banner--400">
+		<section class="banner banner--post banner--600">
 
 			<div class="banner__hero">
 				<?php
