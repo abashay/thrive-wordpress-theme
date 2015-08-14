@@ -331,11 +331,21 @@ footer {
     padding-bottom: 25%;
 }
 
+.infobox--cover .infobox__content {
+    bottom: 0;
+    padding: 15%;
+    top: 0;
+}
+    .infobox--cover .infobox__content h2 {
+        font-size: 65px;
+        line-height: 75px;
+    }
+
 .infobox--story {}
     .infobox--story .infobox__content {
         background-color: rgba(225, 30, 85, 0.7);
     }
-    
+
 .infobox--post {
 	background-color: #030366;
 }
@@ -448,7 +458,7 @@ footer {
 		float: left;
 		width: 50%;
 	}
-	
+
 	.banner--give__form a {
 		color: white;
 		text-transform: uppercase;
@@ -457,11 +467,11 @@ footer {
 		padding: 20px;
 		display: block;
 	}
-	
+
 		.giveform__tabs--regular a {
 			background-color: rgba(3, 3, 102, 0.9);
 		}
-		
+
 			.giveform__tabs--regular a:hover{
 				color: rgb(52, 203, 204);
 				background-color: rgba(3, 3, 102, 0.8);
@@ -469,13 +479,13 @@ footer {
 
 .giveform__form {
 	clear: both;
-	padding: 20px;	
+	padding: 20px;
 }
-	
+
 	.giveform__form input[type=submit] {
 		cursor: pointer;
 	}
-	
+
 	.giveform__form__custom,
 	.giveform__form__buttons,
 	.giveform__form__customsubmit {
@@ -490,36 +500,36 @@ footer {
 		width: 33%;
 		margin: 20px 8%;
 	}
-	
+
 		.giveform__form__custom:focus,
 		.giveform__form__buttons:focus {
 			outline:none;
 		}
-		
+
 		.giveform__form__custom:focus {
 			background-color: rgb(255,255,255);
 			background-color: rgba(255,255,255,0.2);
 		}
-	
+
 	.giveform__form__buttons:hover,
 	.giveform__form__customsubmit:hover{
 		background-color: rgb(255,255,255);
 		background-color: rgba(255,255,255,0.2);
 	}
 
-	
+
 	.giveform__form__custom,
 	.giveform__form__customsubmit {
 		margin: 10px 0;
 	}
-	
+
 	.giveform__form__custom {
 		width: 17%;
 		margin-left: 8%;
 		border-right: 0;
 		border-radius: 3px 0 0 3px;
 	}
-	
+
 	.giveform__form__customsubmit {
 		border-radius: 0 3px 3px 0;
 		border-left: 0;
@@ -563,9 +573,9 @@ footer {
     }
 
 .break-site-padding {
-    display: inline-block;
     margin: -40px;
 }
+.g_sidebar .break-site-padding{ margin: 0; }
 
 /* fade in */
 @keyframes fadein {

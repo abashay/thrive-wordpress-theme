@@ -95,7 +95,7 @@ function thrive_styles_and_scripts() {
 
 	// Load our main stylesheet.
 	wp_enqueue_style( 'thrive-style', get_stylesheet_uri() );
-	
+
 	// Load javacript into the footer.
 	wp_enqueue_script( 'thrive-script', get_template_directory_uri() . '/js/script.js', array( 'jquery' ), '1.0.0', true);
 
@@ -145,31 +145,41 @@ function thrive_get_subpages($atts) {
 
 	// Set up some default values
 	$a = shortcode_atts( array(
+		'parent' => null,
+		'cover' => false,
         'width' => '50',
     ), $atts );
 
 	// Accessed via the loop so functions like `the_id()` will work
 
-	// Step one get a list of subpages...
+	if ($atts['parent'] == null) {
+		$atts['parent'] = get_the_id();
+	}
+
 	$args = array(
-		'sort_order' => 'asc',
-		'sort_column' => 'menu_order',
-		'hierarchical' => 1,
-		'parent' => get_the_id(),
-		'exclude_tree' => '',
-		'number' => '',
-		'offset' => 0,
-		'post_type' => 'page',
-		'post_status' => 'publish'
-	);
-	$children = get_pages($args);
+        'post_type'      => 'page',
+        'post_parent'    => $atts['parent'],
+        'order'          => 'ASC',
+        'orderby'        => 'menu_order',
+        'meta_query' => array(
+            array(
+                'key' => 'hide-from-nav',
+                'compare' => 'NOT EXISTS'
+            ),
+        )
+     );
+
+    $children = new WP_Query( $args );
 
 	$output = '<div class="break-site-padding">';
-	foreach ($children as $subpage) {
+	foreach ($children->posts as $subpage) {
 
+		$classes = "infobox infobox--" . $atts['width'];
+		if ($atts['cover']) {
+			$classes .= " infobox--cover";
+		}
 
-
-		$output .= sprintf('<div class="infobox infobox--%s"><a href="%s">', $atts['width'], get_page_link( $subpage->ID ));
+		$output .= sprintf('<div class="%s"><a href="%s">', $classes, get_page_link( $subpage->ID ));
 
 		if ( has_post_thumbnail($subpage->ID) ) {
 			$thumb_id = get_post_thumbnail_id($subpage->ID);
@@ -185,76 +195,3 @@ function thrive_get_subpages($atts) {
 
 }
 add_shortcode( 'infobox_subpages', 'thrive_get_subpages' );
-
-
-class thrive_infobox_walker_nav_menu extends Walker_Nav_Menu {
-	function start_el ( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
-
-		$infobox_size = 50;
-		if ( isset($args->infobox_size) ) {
-			$infobox_size = $args->infobox_size;
-		}
-
-		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-
-		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
-		$classes[] = 'menu-item-' . $item->ID;
-		$classes[] = 'infobox infobox--' . $infobox_size;
-
-		/**
-		 * Filter the CSS class(es) applied to a menu item's list item element.
-		 */
-		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth ) );
-		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
-
-		/**
-		 * Filter the ID applied to a menu item's list item element.
-		 */
-		$id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args, $depth );
-		$id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
-
-		$output .= $indent . '<li' . $id . $class_names .'>';
-
-		$atts = array();
-		$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
-		$atts['target'] = ! empty( $item->target )     ? $item->target     : '';
-		$atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
-		$atts['href']   = ! empty( $item->url )        ? $item->url        : '';
-
-		/**
-		 * Filter the HTML attributes applied to a menu item's anchor element.
-		 */
-		$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args, $depth );
-
-		$attributes = '';
-		foreach ( $atts as $attr => $value ) {
-			if ( ! empty( $value ) ) {
-				$value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
-				$attributes .= ' ' . $attr . '="' . $value . '"';
-			}
-		}
-
-		/**
-		 * Select the featured image from the database
-		 */
-		$featured_image = wp_get_attachment_image_src(get_post_thumbnail_id($item->object_id), 'square--large', false);
-		if ($featured_image == "") { $featured_image = $GLOBALS['general_image']; }
-		else { $featured_image = $featured_image[0]; }
-
-		$item_output = $args->before;
-		$item_output .= '<a'. $attributes .'><img src="' . $featured_image . '" alt="" /><div class="infobox__content"><h2>';
-		/** This filter is documented in wp-includes/post-template.php */
-		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
-		$item_output .= '</h2></div></a>';
-		$item_output .= $args->after;
-
-		/**
-		 * Filter a menu item's starting output.
-		 */
-		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-	}
-
-	function end_el( &$output, $item, $depth = 0, $args = array() ) {
-		$output .= "</li>\n";
-	}
-}
