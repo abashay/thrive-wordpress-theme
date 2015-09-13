@@ -7,16 +7,36 @@
  * @since Twenty Fifteen 1.0
  */
 
-get_header(); ?>
+get_header();
+
+$bannerimage = get_template_directory_uri() . '/assets/young-achievers-dinner-2013.jpg';
+
+?>
+
+	<section class="banner banner--post banner--400">
+
+	    <div class="banner__hero">
+	        <img src="<?php echo $bannerimage; ?>" alt="" />
+	    </div>
+
+	    <div class="banner__overlay">
+
+	        <div class="banner__overlay__text">
+
+	            <h1>Search...</h1>
+
+	            <p><?php printf( __( 'Search Results for: %s', 'twentyfifteen' ), get_search_query() ); ?></p>
+
+	        </div>
+
+	    </div>
+
+	</section>
 
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) : ?>
-
-			<header class="page-header">
-				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'twentyfifteen' ), get_search_query() ); ?></h1>
-			</header><!-- .page-header -->
 
 			<?php
 			// Start the loop.
@@ -28,7 +48,7 @@ get_header(); ?>
 				 * If you want to overload this in a child theme then include a file
 				 * called content-search.php and that will be used instead.
 				 */
-				get_template_part( 'content', 'search' );
+				get_template_part( 'content', 'postsnippet' );
 
 			// End the loop.
 			endwhile;

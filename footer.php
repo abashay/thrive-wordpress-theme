@@ -23,10 +23,12 @@
 				</nav>
 			<?php endif; ?>
 
-			<form class="footer__thrive__search">
-				<label for="txt_search">Search</label>
-				<input type="text" placeholder="Tell me what you are looking for" id="txt_search" name="txt_search" />
-				<input type="submit" class="btn" value="Search" />
+			<form class="footer__thrive__search" role="search" method="get" action="<?php echo get_site_url(); ?>">
+				<label for="txt_search">
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search"  title="Search for:" placeholder="Tell me what you are looking for" id="txt_search" class="search-field" name="s" />
+				</label>
+				<input type="submit" class="btn search-submit" value="Search" />
 			</form>
 
 			<form class="footer__thrive__signup">

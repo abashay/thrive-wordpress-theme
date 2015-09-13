@@ -10,12 +10,13 @@
  */
 ?>
 
-<section class="no-results not-found">
-	<header class="page-header">
-		<h1 class="page-title"><?php _e( 'Nothing Found', 'twentyfifteen' ); ?></h1>
-	</header><!-- .page-header -->
+<article class="postlist__post cf">
 
-	<div class="page-content">
+
+
+	<div class="post">
+
+		<h1 class="page-title"><?php _e( 'Nothing Found', 'twentyfifteen' ); ?></h1>
 
 		<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 
@@ -34,4 +35,4 @@
 		<?php endif; ?>
 
 	</div><!-- .page-content -->
-</section><!-- .no-results -->
+</article><!-- .no-results -->
