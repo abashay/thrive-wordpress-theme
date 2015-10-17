@@ -164,6 +164,7 @@ footer {
     .footer__innovista {
         background-color: #fff;
         color: rgb(58, 58, 58);
+        overflow: hidden;
     }
 
         .footer__innovista p {
@@ -219,7 +220,7 @@ footer {
 
     .banner__overlay {
         bottom: 0;
-        background: rgba(34, 32, 95, 0.7);
+        background: rgba(0, 0, 102, 0.7);
         position: absolute;
         top: 0;
         width: 100%;
@@ -255,6 +256,8 @@ footer {
             padding: 5% 10%;
             text-align: center;
             width:100%;
+            position: absolute;
+            bottom: 0;
         }
 
 
