@@ -723,6 +723,11 @@ footer {
     header ul {left: 0;}
     .footer__innovista__text { width: 100%; }
     .footer__innovista__logo { width: 60%; }
+
+    .infobox {
+        width: 100% !important;
+        padding-bottom: 100% !important;
+    }
 }
 
 @media (max-width: 300px) {
