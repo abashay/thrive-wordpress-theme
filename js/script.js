@@ -1,3 +1,10 @@
+// Toggle the menu
+jQuery('.mobile-menu-toggle a').on('click', function(e){
+    e.preventDefault();
+    jQuery('body').toggleClass('menuOpen');
+    jQuery('.nav-menu').slideToggle();
+});
+
 // Display a redirect sign post on submission of give form
 // Should also intercept `class="donatelink"`
 jQuery('#giveform').submit(function (e) {
@@ -31,8 +38,6 @@ jQuery( '#mc-embedded-subscribe-form' ).submit(function(e){
     }
 
 });
-
-
 
 function validateEmail(email) {
     var re = /\S+@\S+\.\S+/;

@@ -293,6 +293,8 @@ footer {
         max-height: 600px;
     }
 
+    .mobile-menu-toggle { display: none;}
+
 .infobox {
     float: left;
     overflow: hidden;
@@ -640,5 +642,83 @@ footer {
     from { opacity: 0; }
     to { opacity: 1; }
 }
+
+
+@media (max-width: 900px) {
+    .banner__overlay h1 { font-size: 2.5em }
+    footer input[type=text], footer input[type=email] { font-size: 0.825em; }
 }
 
+@media (max-width: 750px) {
+    .banner__overlay h1 { font-size: 1.75em; text-align: center; }
+}
+
+@media (max-width: 675px) {
+    header { background-color: #fff; }
+    header ul {
+        display: none;
+        position: relative;
+        width: 100%;
+        right: 0;
+        top: 0;
+        left: 200px;
+        background-color: #000066;
+    }
+    header li {
+        display: block;
+    }
+    header li:last-child a {
+        margin-left: 0;
+    }
+    header li a:hover{
+        background-color: #00004D;
+        border-bottom: none;
+    }
+
+    .mobile-menu-toggle {
+        background-color: white;
+        display: block;
+        height: 194px;
+    }
+
+        .mobile-menu-toggle a{
+            color: #000066;
+            font-weight: bold;
+            right: 40px;
+            position: absolute;
+            top: 135px;
+            background: url('assets/nav-menu.svg') no-repeat center right;
+            background-size: contain;
+            padding-right: 27px;
+            outline: none;
+        }
+
+    .menuOpen .mobile-menu-toggle a{
+        background: url('assets/nav-close.svg') no-repeat center right;
+        background-size: contain;
+    }
+
+}
+
+@media (max-width: 375px) {
+    header ul {left: 0;}
+}
+
+@media (max-width: 300px) {
+    header h1 { padding: 10px 0;}
+    .header__logo {
+        position: relative;
+        top: auto;
+        left: auto;
+        margin: 0 auto;
+    }
+    .mobile-menu-toggle {height: 34px; }
+    .mobile-menu-toggle a{
+        top: auto;
+        left: auto;
+        right: auto;
+        margin: 0 35%;
+        display: table;
+        width: 30%;
+    }
+}
