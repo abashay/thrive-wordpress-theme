@@ -31,13 +31,24 @@
 				<input type="submit" class="btn search-submit" value="Search" />
 			</form>
 
-			<form class="footer__thrive__signup">
-				<label for="txt_email">Join our mailing list</label>
-				<input type="email" placeholder="Your main email address" id="txt_email" name="txt_email" />
 
-				<input type="submit" class="btn" value="Submit your email" />
+			<form action="//innovista.us6.list-manage.com/subscribe/post?u=4c7a819d6edce6c9c111f6e2d&amp;id=8baf4fdf25" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="footer__thrive__signup validate" target="_blank" novalidate>
 
-				<small>We will never pass your details to anyone else. Promise.</small>
+				<div id="mce-responses" class="clear">
+					<div class="response" id="mce-error-response" style="display:none"></div>
+					<div class="response" id="mce-success-response" style="display:none"></div>
+				</div>
+
+				<div class="mc-field-group">
+					<label for="mce-EMAIL">Join our mailing list</label>
+					<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Your main email address">
+				</div>
+
+			    <div style="position: absolute; left: -5000px;"><input type="text" name="b_4c7a819d6edce6c9c111f6e2d_8baf4fdf25" tabindex="-1" value=""></div>
+			    <input type="hidden" value="2" name="group[6109][2]" id="mce-group[6109]-6109-1">
+			    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+
+			    <small>We will never pass your details to anyone else. Promise.</small>
 			</form>
 
 		</section>
