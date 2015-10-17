@@ -699,6 +699,10 @@ footer {
         background-size: contain;
     }
 
+    .infobox__content p{
+        display: none;
+    }
+
     .footer__thrive__navigation,
     .footer__thrive__search,
     .footer__thrive__signup {
