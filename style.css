@@ -654,6 +654,7 @@ footer {
 }
 
 @media (max-width: 675px) {
+    .banner__overlay__text { margin-top: 0; width: 100%;}
     header { background-color: #fff; }
     header ul {
         display: none;
@@ -698,10 +699,26 @@ footer {
         background-size: contain;
     }
 
+    .footer__thrive__navigation,
+    .footer__thrive__search,
+    .footer__thrive__signup {
+        width: 100%;
+    }
+
+    .footer__innovista__text { width: 66%; }
+    .footer__innovista__logo { width: 34%; }
+
+}
+
+@media (max-width: 450px) {
+    .banner__overlay h1 { font-size: 1.25em; }
 }
 
 @media (max-width: 375px) {
+    .banner__overlay h1 { font-size: 1em; }
     header ul {left: 0;}
+    .footer__innovista__text { width: 100%; }
+    .footer__innovista__logo { width: 60%; }
 }
 
 @media (max-width: 300px) {
