@@ -11,7 +11,21 @@
  * @since Twenty Fifteen 1.0
  */
 
-$featured_posts = thrive_featured_posts(1);
+$featured_posts = thrive_featured_posts(2);
+
+$pages_top = array(
+	'include' => '78, 66',
+	'post_type' => 'page',
+	'post_status' => 'publish'
+);
+$pages_top = get_pages($pages_top);
+
+$pages_bottom = array(
+	'include' => '108',
+	'post_type' => 'page',
+	'post_status' => 'publish'
+);
+$pages_bottom = get_pages($pages_bottom);
 
 get_header(); ?>
 
@@ -43,14 +57,25 @@ get_header(); ?>
 
 	<section>
 
-		<?/*<div class="infobox infobox--50">
-			<a href="#">
-				<img src="http://loremflickr.com/500/500?one" alt="" />
-				<div class="infobox__content">
-					<h2>Optional featured page 2: eg event</h2>
+		<?php if(count($pages_top) > 0): ?>
+			<?php foreach($pages_top as $post) : ?>
+				<div class="infobox infobox--50 infobox--page">
+					<?php echo sprintf('<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ); ?>
+						<?php
+							if ( has_post_thumbnail() ) {
+								$thumb_id = get_post_thumbnail_id();
+								echo thrive_infobox_picture($thumb_id);
+							}
+							$excerpt = strip_tags(get_the_excerpt());
+						?>
+						<div class="infobox__content">
+							<h2><?php echo $post->post_title; ?></h2>
+							<?php if($excerpt){ echo "<p>" . $excerpt . "</p>"; } ?>
+						</div>
+					</a>
 				</div>
-			</a>
-		</div>*/?>
+			<? endforeach; ?>
+		<?php endif; ?>
 
 		<?php if(count($featured_posts) > 0): ?>
 			<?php foreach($featured_posts as $post) : ?>
@@ -79,12 +104,25 @@ get_header(); ?>
 
 		<?php endif; // End if featured posts ?>
 
-	<!--<div class="story-box">
-		Optional featured page 2: Join in
-	</div>
+		<?php if(count($pages_bottom) > 0): ?>
+			<?php foreach($pages_bottom as $post) : ?>
+				<div class="infobox infobox--50 infobox--page">
+					<?php echo sprintf('<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ); ?>
+						<?php
+							if ( has_post_thumbnail() ) {
+								$thumb_id = get_post_thumbnail_id();
+								echo thrive_infobox_picture($thumb_id);
+							}
+							$excerpt = strip_tags(get_the_excerpt());
+						?>
+						<div class="infobox__content">
+							<h2><?php echo $post->post_title; ?></h2>
+							<?php if($excerpt){ echo "<p>" . $excerpt . "</p>"; } ?>
+						</div>
+					</a>
+				</div>
+			<? endforeach; ?>
+		<?php endif; ?>
 
-	<div class="story-box">
-		Optional featured page 3: Join in
-	</div>-->
 
 <?php get_footer(); ?>
