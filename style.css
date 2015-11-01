@@ -21,7 +21,6 @@ body, html, input {
     letter-spacing: 1px;
     -webkit-font-smoothing: antialiased;
     text-shadow: rgba(0,0,0,.01) 0 0 1px;
-    height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
