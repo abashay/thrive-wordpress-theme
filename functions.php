@@ -202,7 +202,7 @@ function thrive_get_subpages($atts) {
         'width' => '50',
     ), $atts );
 
-	if ($atts['parent'] == null) {
+	if (!isset($atts['parent'])) {
 		// Should be accessed via the loop so functions like `the_id()` will work
 		$atts['parent'] = get_the_id();
 	}
@@ -265,7 +265,7 @@ function thrive_get_endorsements($atts) {
 		'posts_per_page'=> 1
      );
 
-    if ($atts['team'] != null) {
+    if (isset($atts['team'])) {
     	$args['team_tags'] = $atts['team'];
     }
 
@@ -303,7 +303,7 @@ function thrive_return_post_infobox($wp_array, $atts){
 	foreach ($wp_array as $post) {
 
 		$classes = "infobox infobox--" . $atts['width'];
-		if ($atts['cover']) {
+		if (isset($atts['cover'])) {
 			$classes .= " infobox--cover";
 		}
 
