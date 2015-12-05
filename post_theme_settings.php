@@ -8,14 +8,18 @@
 
 
   function thrive_add_featured_page_meta_box() {
-    add_meta_box(
-      'thrive_page_custom_attributes',
-      'Theme Settings',
-      'thrive_featured_page_setup',
-      'page',
-      'side',
-      'default'
-    );
+    $screens = array( 'post', 'page' );
+
+    foreach ( $screens as $screen ) {
+      add_meta_box(
+        'thrive_page_custom_attributes',
+        'Theme Settings',
+        'thrive_featured_page_setup',
+        $screen,
+        'side',
+        'default'
+      );
+    }
   }
 
   function thrive_featured_page_setup($post) {
@@ -33,11 +37,23 @@
       $saved_highlight_colour = 'blue';
     }
 
-    $featured_options = array(
-      '0'       => 'No',
-      '1'      => 'Top',
-      '2'   => 'Bottom'
-    );
+    $saved_banner_text = get_post_meta( $post->ID, 'banner-text', true);
+    if( !$saved_banner_text ){
+      $saved_banner_text = '';
+    }
+
+    if( $post->post_type == 'post') {
+      $featured_options = array(
+        '0'       => 'No',
+        '1'      => 'Yes',
+      );
+    } else {
+      $featured_options = array(
+        '0'       => 'No',
+        '1'      => 'Top',
+        '2'   => 'Bottom'
+      );
+    }
 
     $highlight_options = array(
       'red'       => 'Red',
@@ -45,7 +61,7 @@
       'blue'      => 'Blue'
     );
 
-    include_once('templates/tpl_featured_page_settings.php');
+    include_once('templates/tpl_post_theme_settings.php');
   }
 
   /* When the post is saved, saves our custom data */

@@ -1,17 +1,6 @@
 <?php
-/**
- * The template for displaying pages
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages and that
- * other "pages" on your WordPress site will use a different template.
- *
- * @package WordPress
- * @subpackage Twenty_Fifteen
- * @since Twenty Fifteen 1.0
- */
 
-$featured_posts = thrive_featured_posts(2);
+$blocks = array();
 
 $pages_top = array(
 	'meta_key' => 'thrive_featured_page',
@@ -19,7 +8,18 @@ $pages_top = array(
 	'post_type' => 'page',
 	'post_status' => 'publish'
 );
-$pages_top = get_posts($pages_top);
+$blocks[] = get_posts($pages_top);
+
+$featured_posts = array(
+	'meta_key' => 'thrive_featured_page',
+	'meta_value' => '1',
+	'post_type' => 'post',
+	'post_status' => 'publish',
+	'orderby' => 'date',
+	'order' => 'DESC',
+	'posts_per_page' => 3,
+);
+$blocks[] = get_posts($featured_posts);
 
 $pages_bottom = array(
 	'meta_key' => 'thrive_featured_page',
@@ -27,7 +27,7 @@ $pages_bottom = array(
 	'post_type' => 'page',
 	'post_status' => 'publish'
 );
-$pages_bottom = get_posts($pages_bottom);
+$blocks[] = get_posts($pages_bottom);
 
 get_header(); ?>
 
@@ -59,8 +59,11 @@ get_header(); ?>
 
 	<section>
 
-		<?php if(count($pages_top) > 0): ?>
-			<?php foreach($pages_top as $post) : ?>
+	<?php // TODO: Tidy this up ?>
+
+	<?php foreach( $blocks as $block ): ?>
+		<?php if(count($block) > 0): ?>
+			<?php foreach($block as $post) : ?>
 				<?php $highlight_color = get_post_meta( get_the_ID(), 'thrive_highlight_color', true); ?>
 				<div class="infobox infobox--50 infobox--page infobox--<?php echo $highlight_color; ?>">
 					<?php echo sprintf('<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ); ?>
@@ -79,54 +82,8 @@ get_header(); ?>
 				</div>
 			<? endforeach; ?>
 		<?php endif; ?>
+	<?php endforeach; ?>
 
-		<?php if(count($featured_posts) > 0): ?>
-			<?php foreach($featured_posts as $post) : ?>
-
-			<?php
-				setup_postdata( $post );
-				$excerpt = strip_tags(get_the_excerpt());
-			?>
-
-			<div class="infobox infobox--50 infobox--story">
-				<?php echo sprintf('<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ); ?>
-					<?php
-						if ( has_post_thumbnail() ) {
-							$thumb_id = get_post_thumbnail_id();
-							echo thrive_infobox_picture($thumb_id);
-						}
-					?>
-					<div class="infobox__content">
-						<h2><?php echo $post->post_title; ?></h2>
-						<?php if($excerpt){ echo "<p>" . $excerpt . "</p>"; } ?>
-					</div>
-				</a>
-			</div>
-
-			<?php endforeach; // End foreach featured post ?>
-
-		<?php endif; // End if featured posts ?>
-
-		<?php if(count($pages_bottom) > 0): ?>
-			<?php foreach($pages_bottom as $post) : ?>
-				<?php $highlight_color = get_post_meta( get_the_ID(), 'thrive_highlight_color', true); ?>
-				<div class="infobox infobox--50 infobox--page infobox--<?php echo $highlight_color; ?>">
-					<?php echo sprintf('<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ); ?>
-						<?php
-							if ( has_post_thumbnail() ) {
-								$thumb_id = get_post_thumbnail_id();
-								echo thrive_infobox_picture($thumb_id);
-							}
-							$excerpt = strip_tags(get_the_excerpt());
-						?>
-						<div class="infobox__content">
-							<h2><?php echo $post->post_title; ?></h2>
-							<?php if($excerpt){ echo "<p>" . $excerpt . "</p>"; } ?>
-						</div>
-					</a>
-				</div>
-			<? endforeach; ?>
-		<?php endif; ?>
-
+	</section>
 
 <?php get_footer(); ?>

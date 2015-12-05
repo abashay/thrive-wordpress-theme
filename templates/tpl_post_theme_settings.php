@@ -1,3 +1,12 @@
+<p><strong>Banner text</strong></p>
+<?php
+  printf(
+    '<textarea name="banner-text" id="banner-text" rows="4" style="%2$s">%1$s</textarea>',
+    esc_html($saved_banner_text),
+    'width: 100%'
+  );
+?>
+
 <p><strong>Display on homepage</strong></p>
 <?php
   foreach($featured_options as $key => $label) {
