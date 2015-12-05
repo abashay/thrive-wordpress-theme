@@ -31,6 +31,7 @@
  * @since Twenty Fifteen 1.0
  */
 
+include_once('featured_page.php');
 
 $GLOBALS['general_image'] = get_template_directory_uri() . '/assets/banner_sq.jpg';
 

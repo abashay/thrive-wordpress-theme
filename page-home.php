@@ -14,18 +14,20 @@
 $featured_posts = thrive_featured_posts(2);
 
 $pages_top = array(
-	'include' => '78, 66',
+	'meta_key' => 'thrive_featured_page',
+	'meta_value' => '1',
 	'post_type' => 'page',
 	'post_status' => 'publish'
 );
-$pages_top = get_pages($pages_top);
+$pages_top = get_posts($pages_top);
 
 $pages_bottom = array(
-	'include' => '108',
+	'meta_key' => 'thrive_featured_page',
+	'meta_value' => '2',
 	'post_type' => 'page',
 	'post_status' => 'publish'
 );
-$pages_bottom = get_pages($pages_bottom);
+$pages_bottom = get_posts($pages_bottom);
 
 get_header(); ?>
 
@@ -59,7 +61,8 @@ get_header(); ?>
 
 		<?php if(count($pages_top) > 0): ?>
 			<?php foreach($pages_top as $post) : ?>
-				<div class="infobox infobox--50 infobox--page">
+				<?php $highlight_color = get_post_meta( get_the_ID(), 'thrive_highlight_color', true); ?>
+				<div class="infobox infobox--50 infobox--page infobox--<?php echo $highlight_color; ?>">
 					<?php echo sprintf('<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ); ?>
 						<?php
 							if ( has_post_thumbnail() ) {
@@ -106,7 +109,8 @@ get_header(); ?>
 
 		<?php if(count($pages_bottom) > 0): ?>
 			<?php foreach($pages_bottom as $post) : ?>
-				<div class="infobox infobox--50 infobox--page">
+				<?php $highlight_color = get_post_meta( get_the_ID(), 'thrive_highlight_color', true); ?>
+				<div class="infobox infobox--50 infobox--page infobox--<?php echo $highlight_color; ?>">
 					<?php echo sprintf('<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ); ?>
 						<?php
 							if ( has_post_thumbnail() ) {

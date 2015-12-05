@@ -445,6 +445,10 @@ footer {
 		bottom: auto;
 	}
 
+.infobox--red .infobox__content   { background-color: rgba(225, 30, 85, 0.7); }
+.infobox--green .infobox__content { background-color: rgba(66, 193, 200, 0.7); }
+.infobox--blue .infobox__content  { background-color: rgba(0, 0, 102, 0.7); }
+
 
 .postlist {}
 
