@@ -480,6 +480,12 @@ footer {
             width: 75%;
         }
 
+        @media all and (max-width: 400px) {
+            .postlist__post .post{
+                width: 100%;
+            }
+        }
+
 .post{}
 
     .post h2 {
@@ -506,7 +512,6 @@ footer {
 
     p {
         font-size: 1.25em;
-        line-height: 175%;
         margin-bottom: 1.25em;
     }
 
@@ -517,6 +522,10 @@ footer {
     .g_main_content {
         width: 67%;
     }
+
+        .g_main_content--lonely{
+            margin: 0 16.5%;
+        }
 
     .g_sidebar {
         width: 33%;

@@ -40,11 +40,17 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) : ?>
 
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php $i=1; while ( have_posts() ) : the_post(); ?>
 
-				<?php get_template_part( 'content', 'postsnippet' ); ?>
+				<?php
+					if ($i <= 2) {
+						get_template_part( 'content', 'postinfobox' );
+					} else {
+						get_template_part( 'content', 'postsnippet' );
+					}
+				?>
 
-			<?php endwhile; // End the loop. ?>
+			<?php $i++; endwhile; // End the loop. ?>
 
 
 			<?php
