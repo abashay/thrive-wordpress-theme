@@ -224,6 +224,36 @@ footer {
                     width: 100%;
                 }
 
+    @media (max-width: 675px) {
+        .footer__thrive {
+            flex-direction: column-reverse;
+        }
+
+        .footer__thrive__signup {
+            padding: 50px 4%;
+        }
+
+        .footer__form__container {
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        .footer__thrive__search .screen-reader-text {
+            display: block;
+        }
+
+        .footer__thrive__search .search-field {
+            max-width: 200px;
+        }
+
+        .footer__thrive__search .search-submit {
+            width: auto;
+            font-size: 10px;
+            display: inline-block;
+            margin: 0 0 0 5px;
+            padding: 5px 5px;
+        }
+    }
 /**
  * Banner
  */
@@ -541,6 +571,15 @@ footer {
 	padding: 20px;
 }
 
+    .giveform__form form {
+        float: left;
+        width: 50%;
+    }
+
+    .giveform__form__customamount {
+        padding: 10px 0;
+    }
+
 	.giveform__form input[type=submit] {
 		cursor: pointer;
 	}
@@ -556,7 +595,7 @@ footer {
 		text-decoration: none;
 		font-weight: 700;
 		padding: 10px 20px;
-		width: 33%;
+		width: 90%    ;
 		margin: 20px 8%;
 	}
 
@@ -583,7 +622,7 @@ footer {
 	}
 
 	.giveform__form__custom {
-		width: 17%;
+		width: 60%;
 		margin-left: 8%;
 		border-right: 0;
 		border-radius: 3px 0 0 3px;
@@ -592,9 +631,54 @@ footer {
 	.giveform__form__customsubmit {
 		border-radius: 0 3px 3px 0;
 		border-left: 0;
-		width: 16%;
+		width: 30%;
 		text-align: right;
 		padding: 10px
+    }
+
+    @media all and (max-width: 600px) {
+        /* TODO: Tidy this mess up; */
+        .banner--give {
+            height: 420px;
+        }
+
+            .banner--give .banner__hero {
+                height: 100%;
+                max-height: auto;
+            }
+
+                .banner--give .banner__hero img {
+                    height: 100%;
+                    width: auto;
+                    max-width: none;
+                }
+
+        .banner--give__text,
+        .banner--give__form {
+            width: 100%;
+        }
+
+        .giveform__form__custom,
+        .giveform__form__buttons,
+        .giveform__form__customsubmit {
+            margin: 10px 8%;
+        }
+
+        .giveform__form__customamount {
+            padding: 0;
+        }
+
+            .giveform__form__custom {
+                margin-right: 0;
+                width: 45%;
+                padding: 10px 7px;
+            }
+
+            .giveform__form__customsubmit {
+                margin: 0;
+                width: 45%
+            }
+
     }
 
 /*
@@ -717,7 +801,7 @@ footer {
     .banner__overlay h1 { font-size: 1.25em; }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 400px) {
     .banner__overlay h1 { font-size: 1em; }
     header ul {left: 0;}
     .footer__innovista__text { width: 100%; }
