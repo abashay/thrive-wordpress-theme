@@ -38,6 +38,14 @@ img {
     max-width: 100%;
 }
 
+strong {
+    font-weight: bold;
+}
+
+em {
+    font-style: italic;
+}
+
 header {
     width: 100%;
     color: #fff;
