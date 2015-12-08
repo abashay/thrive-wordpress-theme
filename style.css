@@ -501,6 +501,16 @@ footer {
         margin-bottom: 1em;
     }
 
+    .post__meta {
+        border-top: 1px solid #ccc;
+        font-size: 0.825em;
+        padding: 0 40px;
+    }
+
+        .post__meta p {
+            margin: 10px 0;
+        }
+
     .post__content {
         padding: 40px;
     }
