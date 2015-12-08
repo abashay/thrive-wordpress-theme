@@ -46,6 +46,11 @@ em {
     font-style: italic;
 }
 
+.screen-reader-text {
+    position: absolute !important;
+    left: -999em;
+}
+
 header {
     width: 100%;
     color: #fff;
@@ -863,3 +868,17 @@ footer {
         width: 30%;
     }
 }
+
+.pagination {
+    padding: 20px 40px;
+    text-align: center;
+    font-weight: bold;
+}
+
+    .page-numbers {
+        padding: 0 5px;
+    }
+
+    .page-numbers.current {
+        font-weight: normal;
+    }

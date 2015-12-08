@@ -56,9 +56,9 @@ get_header(); ?>
 			<?php
 			// Previous/next page navigation.
 			the_posts_pagination( array(
-				'prev_text'          => 'Previous page',
-				'next_text'          => 'Next page',
-				'before_page_number' => '<span class="meta-nav screen-reader-text">Page</span>',
+				'mid_size'			=> 3,
+				'prev_text'          => '&#9668;<span class="screen-reader-text"> Previous page</span>',
+				'next_text'          => '&#9658;<span class="screen-reader-text"> Next page</span>',
 			) );
 
 			?>
