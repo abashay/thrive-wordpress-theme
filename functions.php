@@ -299,10 +299,11 @@ add_shortcode( 'infobox_endorsements', 'thrive_get_endorsements' );
 
 
 function thrive_return_post_infobox($wp_array, $atts){
+    // TODO: This duplicates other code. DRY THIS OUT
 	$output = '<div class="break-site-padding">';
 	foreach ($wp_array as $post) {
-
-		$classes = "infobox infobox--" . $atts['width'];
+        $highlight_color = get_post_meta( $post->ID, 'thrive_highlight_color', true);
+		$classes = "infobox infobox--" . $atts['width'] . " infobox--".$highlight_color;
 		if (isset($atts['cover'])) {
 			$classes .= " infobox--cover";
 		}
