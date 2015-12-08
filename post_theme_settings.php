@@ -57,8 +57,9 @@
 
     $highlight_options = array(
       'red'       => 'Red',
-      'green'     => 'Green',
-      'blue'      => 'Blue'
+      'green'     => 'Turquoise',
+      'blue'      => 'Dark Blue',
+      'blue-light'=> 'Light Blue'
     );
 
     include_once('templates/tpl_post_theme_settings.php');
