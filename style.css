@@ -524,7 +524,7 @@ footer {
     }
 
     .post__meta {
-        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
         font-size: 0.825em;
         padding: 0 40px;
     }

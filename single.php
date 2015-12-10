@@ -36,15 +36,14 @@
 
 		</section>
 
+		<section class="post__meta g_main_content g_main_content--lonely">
+			<p>Published: <?php the_date(); ?></p>
+		</section>
+
 		<section class="post__content g_main_content g_main_content--lonely">
 
 			<?php the_content(); ?>
 
-		</section>
-
-		<section class="post__meta g_main_content g_main_content--lonely">
-			<p>Published: <?php the_date(); ?></p>
-			<p>Author: <?php the_author_meta('display_name'); ?></p>
 		</section>
 
 	</article>
