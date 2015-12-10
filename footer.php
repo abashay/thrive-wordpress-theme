@@ -26,9 +26,9 @@
 			<form class="footer__thrive__search" role="search" method="get" action="<?php echo get_site_url(); ?>">
 				<label for="txt_search">
 					<span class="screen-reader-text">Search</span>
-					<input type="text"  title="Search for:" id="txt_search" class="search-field" name="s" />
+					<input type="text"  title="Search for:" id="txt_search" class="search-field" name="s" placeholder="Search..." />
 				</label>
-				<input type="submit" class="btn search-submit" value="Search" />
+				<input type="submit" class="btn search-submit" value="" />
 			</form>
 
 
@@ -46,7 +46,7 @@
 
 				    <div style="position: absolute; left: -5000px;"><input type="text" name="b_4c7a819d6edce6c9c111f6e2d_8baf4fdf25" tabindex="-1" value=""></div>
 				    <input type="hidden" value="2" name="group[6109][2]" id="mce-group[6109]-6109-1">
-				    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn search-submit">
+				    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn">
 
 				    <small>We will never pass your details to anyone else.</small>
 			    </div>

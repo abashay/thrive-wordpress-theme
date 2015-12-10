@@ -136,6 +136,7 @@ footer {
 
         footer input[type=text], footer input[type=email] {
             border: 0;
+            margin-top: 6px;
             padding: 7px 10px;
         }
 
@@ -189,7 +190,20 @@ footer {
         .footer__thrive__search {
             padding: 4%;
             width: 25%;
+            text-align: right;
         }
+
+            .search-submit {
+                background: url(/wp-content/themes/thrive-wordpress-theme/assets/icon_search.png) no-repeat center center;
+                background-size: 80%;
+                height: 32px;
+                margin: 0 0 0 10px;
+                width: 32px;
+            }
+
+            .search-field {
+                width: 60%;
+            }
 
         .footer__thrive__signup {
             background-color: rgb(52, 203, 204);
@@ -252,20 +266,22 @@ footer {
             margin: 0 auto;
         }
 
-        .footer__thrive__search .screen-reader-text {
-            display: block;
+        .footer__thrive__search {
+            text-align: left;
         }
 
         .footer__thrive__search .search-field {
             max-width: 200px;
+            margin-top: 0;
         }
 
         .footer__thrive__search .search-submit {
-            width: auto;
             font-size: 10px;
             display: inline-block;
             margin: 0 0 0 5px;
             padding: 5px 5px;
+            height: 28px;
+            width: 28px;
         }
     }
 /**
