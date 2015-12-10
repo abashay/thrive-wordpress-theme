@@ -1,7 +1,7 @@
 <?php
 
 $quandry = array(
-	'posts_per_page' => -1,
+	'posts_per_page' => 10,
 	'post_status' => 'publish',
 	'post_type' => 'any',
 	'meta_key' => 'thrive_featured_page',
