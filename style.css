@@ -918,6 +918,39 @@ footer {
         font-weight: normal;
     }
 
+.alignleft {
+    float: left;
+    padding: 0 20px 20px 0;
+    max-width: 300px;
+}
+
+.alignright {
+    float: right;
+    padding: 0 0 20px 20px;
+    max-width: 300px;
+}
+
+.aligncenter {
+    display: block;
+    margin: 0 auto;
+    padding: 0 0 20px;
+    max-width: 80%;
+}
+
+@media (max-width: 800px) {
+    .alignleft, .alignright {
+        max-width: 50%;
+    }
+}
+@media (max-width: 420px) {
+    .alignleft, .alignright {
+        display: block;
+        margin: 0 auto;
+        padding: 0 0 20px;
+        max-width: 100%;
+    }
+}
+
 /* TODO: A lot better here please? K thx bai; */
 .sagedonateform {}
 
