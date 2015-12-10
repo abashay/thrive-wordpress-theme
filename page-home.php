@@ -17,19 +17,23 @@ get_header(); ?>
 
 		<a href="/about/">
 
-			<div class="banner__hero">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/banner.jpg" alt="" />
-			</div>
+			<div class="banner__main">
 
-			<div class="banner__overlay">
+				<div class="banner__hero">
+					<img src="<?php echo get_template_directory_uri(); ?>/assets/banner.jpg" alt="" />
+				</div>
 
-				<div class="banner__overlay__text">
+				<div class="banner__overlay">
 
-					<h1>Should your circumstances dictate your destiny?</h1>
+					<div class="banner__overlay__text">
 
-					<span class="btn">
-						Find out more
-					</span>
+						<h1>Should your circumstances dictate your destiny?</h1>
+
+						<span class="btn">
+							Find out more
+						</span>
+
+					</div>
 
 				</div>
 

@@ -290,10 +290,26 @@ footer {
 
 .banner {
     position: relative;
+    width: 100%;
 }
 
+    .banner:after{
+        padding-top: 56.25%;
+        display: block;
+        content: '';
+    }
+
+    .banner__main {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        overflow: hidden;
+    }
+
     .banner__hero {
-        max-height: 700px;
+        /*max-height: 700px;*/
         overflow: hidden;
     }
 
@@ -312,10 +328,12 @@ footer {
         .banner__overlay__text {
             color: white;
             margin-top: 135px;
-            position: absolute;
             padding: 40px;
             text-align: left;
             width: 75%;
+
+            position: absolute;
+            bottom: 0;
         }
 
         .banner__overlay h1 {
@@ -344,13 +362,13 @@ footer {
         }
 
 
-    .banner--400 .banner__hero {
+/*    .banner--400 .banner__hero {
         max-height: 400px;
     }
 
     .banner--600 .banner__hero {
         max-height: 600px;
-    }
+    }*/
 
     .mobile-menu-toggle { display: none;}
 
@@ -787,7 +805,7 @@ footer {
 }
 
 @media (max-width: 750px) {
-    .banner__overlay h1 { font-size: 1.75em; text-align: center; }
+    .banner__overlay h1 { font-size: 1.75em; }
 }
 
 @media (max-width: 675px) {

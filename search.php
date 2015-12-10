@@ -15,19 +15,23 @@ $bannerimage = get_template_directory_uri() . '/assets/young-achievers-dinner-20
 
 	<section class="banner banner--post banner--400">
 
-	    <div class="banner__hero">
-	        <img src="<?php echo $bannerimage; ?>" alt="" />
-	    </div>
+		<div class="banner__main">
 
-	    <div class="banner__overlay">
+		    <div class="banner__hero">
+		        <img src="<?php echo $bannerimage; ?>" alt="" />
+		    </div>
 
-	        <div class="banner__overlay__text">
+		    <div class="banner__overlay">
 
-	            <h1>Search...</h1>
+		        <div class="banner__overlay__text">
 
-	            <p><?php printf( __( 'Search Results for: %s', 'twentyfifteen' ), get_search_query() ); ?></p>
+		            <h1>Search...</h1>
 
-	        </div>
+		            <p><?php printf( __( 'Search Results for: %s', 'twentyfifteen' ), get_search_query() ); ?></p>
+
+		        </div>
+
+		    </div>
 
 	    </div>
 

@@ -4,9 +4,9 @@
     while ( have_posts() ) : the_post();
 ?>
 
-	<article class="post">
+	<section class="banner banner--post banner--600">
 
-		<section class="banner banner--post banner--600">
+		<div class="banner__main">
 
 			<div class="banner__hero">
 				<?php
@@ -18,7 +18,7 @@
 
 			<div class="banner__overlay">
 
-				<div class="banner__overlay__text">
+				<div class="banner__overlay__text g_main_content g_main_content--lonely">
 
 					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
@@ -34,7 +34,11 @@
 
 			</div>
 
-		</section>
+		</div>
+
+	</section>
+
+	<article class="post">
 
 		<section class="post__meta g_main_content g_main_content--lonely">
 			<p>Published: <?php the_date(); ?></p>

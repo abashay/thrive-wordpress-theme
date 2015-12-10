@@ -11,7 +11,7 @@ get_header(); ?>
 
 	<section class="banner">
 
-		<a href="/">
+		<div class="banner__main">
 
 			<div class="banner__hero">
 				<img src="<?php echo get_template_directory_uri(); ?>/assets/banner.jpg" alt="" />
@@ -29,7 +29,7 @@ get_header(); ?>
 
 			</div>
 
-		</a>
+		</div>
 
 	</section>
 

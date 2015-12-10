@@ -22,62 +22,66 @@ while ( have_posts() ) : the_post(); ?>
 
 <section class="banner banner--post banner--give">
 
-    <div class="banner__hero">
-        <?php
-            $thumb_id = get_post_thumbnail_id();
-            if (isset($thumb_id) && $thumb_id != "") {
-                $bannerimage = wp_get_attachment_image_src($thumb_id, 'large', false);
-                $bannerimage = $bannerimage[0];
-            } else {
-                // Should look up a default in the settings
-                $bannerimage = $image_folder . 'young-achievers-dinner-2013.jpg';
-            }
-        ?>
-        <img src="<?php echo $bannerimage; ?>" alt="" />
-    </div>
+    <div class="banner__main">
 
-    <div class="banner__overlay">
+        <div class="banner__hero">
+            <?php
+                $thumb_id = get_post_thumbnail_id();
+                if (isset($thumb_id) && $thumb_id != "") {
+                    $bannerimage = wp_get_attachment_image_src($thumb_id, 'large', false);
+                    $bannerimage = $bannerimage[0];
+                } else {
+                    // Should look up a default in the settings
+                    $bannerimage = $image_folder . 'young-achievers-dinner-2013.jpg';
+                }
+            ?>
+            <img src="<?php echo $bannerimage; ?>" alt="" />
+        </div>
 
-        <div class="banner__overlay__text">
+        <div class="banner__overlay">
 
-            <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+            <div class="banner__overlay__text">
 
-            <div class="banner--give__text">
-                <?php
-                    $banner_intro = get_post_meta( get_the_ID(), 'banner-text', true );
-                    // check if the custom field has a value
-                    if( ! empty( $banner_intro ) ) {
-                      echo sprintf('<p>%s</p>', $banner_intro);
-                    }
-                ?>
-            </div>
+                <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
-            <div class="banner--give__form giveform">
-
-                <ul class="giveform__tabs">
-                    <li class="giveform__tabs--single">
-                        <a href="#">Single Gift</a>
-                    </li>
-
-                    <li class="giveform__tabs--regular">
-                        <a href="<?php get_site_url(); ?>/give/regularly/">Regular Gift</a>
-                    </li>
-                </ul>
-
-                <div class="giveform__form" id="giveform__regulargift">
-                    <form class="" method="get" action="<?php echo $donate_url; ?>" >
-                        <input class="giveform__form__buttons" type="submit" value="£25" name="amount" />
-                    </form>
-                    <form class="" method="get" action="<?php echo $donate_url; ?>">
-                        <input class="giveform__form__buttons" type="submit" value="£50" name="amount" />
-                    </form>
-                    <form class="" method="get" action="<?php echo $donate_url; ?>">
-                        <input class="giveform__form__buttons" type="submit" value="£75" name="amount" />
-                    </form>
-                    <form class="" method="get" action="<?php echo $donate_url; ?>">
-                        <input class="giveform__form__buttons" type="submit" value="£? - Other" name="" />
-                    </form>
+                <div class="banner--give__text">
+                    <?php
+                        $banner_intro = get_post_meta( get_the_ID(), 'banner-text', true );
+                        // check if the custom field has a value
+                        if( ! empty( $banner_intro ) ) {
+                          echo sprintf('<p>%s</p>', $banner_intro);
+                        }
+                    ?>
                 </div>
+
+                <div class="banner--give__form giveform">
+
+                    <ul class="giveform__tabs">
+                        <li class="giveform__tabs--single">
+                            <a href="#">Single Gift</a>
+                        </li>
+
+                        <li class="giveform__tabs--regular">
+                            <a href="<?php get_site_url(); ?>/give/regularly/">Regular Gift</a>
+                        </li>
+                    </ul>
+
+                    <div class="giveform__form" id="giveform__regulargift">
+                        <form class="" method="get" action="<?php echo $donate_url; ?>" >
+                            <input class="giveform__form__buttons" type="submit" value="£25" name="amount" />
+                        </form>
+                        <form class="" method="get" action="<?php echo $donate_url; ?>">
+                            <input class="giveform__form__buttons" type="submit" value="£50" name="amount" />
+                        </form>
+                        <form class="" method="get" action="<?php echo $donate_url; ?>">
+                            <input class="giveform__form__buttons" type="submit" value="£75" name="amount" />
+                        </form>
+                        <form class="" method="get" action="<?php echo $donate_url; ?>">
+                            <input class="giveform__form__buttons" type="submit" value="£? - Other" name="" />
+                        </form>
+                    </div>
+                </div>
+
             </div>
 
         </div>
