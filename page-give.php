@@ -13,6 +13,8 @@
 
 $donate_url = "/give/now?";
 
+$image_folder = get_template_directory_uri() . '/assets/';
+
 get_header();
 
 // Start the loop.
@@ -28,7 +30,7 @@ while ( have_posts() ) : the_post(); ?>
                 $bannerimage = $bannerimage[0];
             } else {
                 // Should look up a default in the settings
-                $bannerimage = get_template_directory_uri() . '/assets/young-achievers-dinner-2013.jpg';
+                $bannerimage = $image_folder . 'young-achievers-dinner-2013.jpg';
             }
         ?>
         <img src="<?php echo $bannerimage; ?>" alt="" />
@@ -64,16 +66,16 @@ while ( have_posts() ) : the_post(); ?>
 
                 <div class="giveform__form" id="giveform__regulargift">
                     <form class="" method="get" action="<?php echo $donate_url; ?>" >
-                        <input class="giveform__form__buttons" type="submit" value="£15" name="amount" />
+                        <input class="giveform__form__buttons" type="submit" value="£25" name="amount" />
                     </form>
                     <form class="" method="get" action="<?php echo $donate_url; ?>">
-                        <input class="giveform__form__buttons" type="submit" value="£20" name="amount" />
+                        <input class="giveform__form__buttons" type="submit" value="£50" name="amount" />
                     </form>
                     <form class="" method="get" action="<?php echo $donate_url; ?>">
-                        <input class="giveform__form__buttons" type="submit" value="£30" name="amount" />
+                        <input class="giveform__form__buttons" type="submit" value="£75" name="amount" />
                     </form>
-                    <form class="giveform__form__customamount" method="get" action="<?php echo $donate_url; ?>">
-                        <input class="giveform__form__custom" type="text" placeholder="£" name="amount" /><input class="giveform__form__customsubmit" type="submit" value="Go" />
+                    <form class="" method="get" action="<?php echo $donate_url; ?>">
+                        <input class="giveform__form__buttons" type="submit" value="£? - Other" name="" />
                     </form>
                 </div>
             </div>
@@ -89,30 +91,30 @@ while ( have_posts() ) : the_post(); ?>
 
     <div class="infobox infobox--50">
         <a href="<?php echo $donate_url; ?>amount=£25" class="donatelink">
-            <img src="http://loremflickr.com/500/500?one" />
+            <img src="<?php echo $image_folder . 'give/give25.jpg'; ?>" />
             <div class="infobox__content">
                 <h2>£25</h2>
-                <p>Lorem ipsum dolar sit amet</p>
+                <p>£25 could give young person one month's mentoring in a safe space with a trained volunteer</p>
             </div>
         </a>
     </div>
 
     <div class="infobox infobox--50 infobox--story">
-        <a href="<?php echo $donate_url; ?>amount=£35&amp;" class="donatelink">
-            <img src="http://loremflickr.com/500/500?two" />
+        <a href="<?php echo $donate_url; ?>amount=£50" class="donatelink">
+            <img src="<?php echo $image_folder . 'give/give50.jpg'; ?>" />
             <div class="infobox__content">
-                <h2>£35</h2>
-                <p>Lorem ipsum dolar sit amet</p>
+                <h2>£50</h2>
+                <p>£50 could unleash the potential of a young leader with one session of training followed by 1:1 coaching</p>
             </div>
         </a>
     </div>
 
     <div class="infobox infobox--50">
-        <a href="<?php echo $donate_url; ?>amount=£50&amp;a=Thrive" class="donatelink">
-            <img src="http://loremflickr.com/500/500?two" />
+        <a href="<?php echo $donate_url; ?>amount=£75" class="donatelink">
+            <img src="<?php echo $image_folder . 'give/give75.jpg'; ?>" />
             <div class="infobox__content">
-                <h2>£50</h2>
-                <p>Lorem ipsum dolar sit amet</p>
+                <h2>£75</h2>
+                <p>£75 could allow a high-risk young person to receive specialist mentoring from one of our qualified youth workers</p>
             </div>
         </a>
     </div>
@@ -121,7 +123,7 @@ while ( have_posts() ) : the_post(); ?>
         <a href="#">
             <div class="infobox__content">
                 <h2>Give by post</h2>
-                <p>You can give to the work of Thrive by post too...</p>
+                <p>You can still give via good old fashioned post! Cheques should be made payable to ‘Thrive’ and sent to Thrive, Suite A First Floor, Meridian House, Sandy Lane West, Oxford, OX4 6LB, UK. Please don’t send cash in the post.</p>
             </div>
         </a>
     </div>
