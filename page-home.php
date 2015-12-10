@@ -1,33 +1,15 @@
 <?php
 
-$blocks = array();
-
-$pages_top = array(
-	'meta_key' => 'thrive_featured_page',
-	'meta_value' => '1',
-	'post_type' => 'page',
-	'post_status' => 'publish'
-);
-$blocks[] = get_posts($pages_top);
-
-$featured_posts = array(
-	'meta_key' => 'thrive_featured_page',
-	'meta_value' => '1',
-	'post_type' => 'post',
+$quandry = array(
+	'posts_per_page' => -1,
 	'post_status' => 'publish',
-	'orderby' => 'date',
-	'order' => 'DESC',
-	'posts_per_page' => 3,
-);
-$blocks[] = get_posts($featured_posts);
-
-$pages_bottom = array(
+	'post_type' => 'any',
 	'meta_key' => 'thrive_featured_page',
-	'meta_value' => '2',
-	'post_type' => 'page',
-	'post_status' => 'publish'
+	'orderby' => 'meta_value',
+	'order' => 'ASC',
 );
-$blocks[] = get_posts($pages_bottom);
+
+$blocks = get_posts($quandry);
 
 get_header(); ?>
 
@@ -61,28 +43,26 @@ get_header(); ?>
 
 	<?php // TODO: Tidy this up ?>
 
-	<?php foreach( $blocks as $block ): ?>
-		<?php if(count($block) > 0): ?>
-			<?php foreach($block as $post) : ?>
-				<?php $highlight_color = get_post_meta( get_the_ID(), 'thrive_highlight_color', true); ?>
-				<div class="infobox infobox--50 infobox--page infobox--<?php echo $highlight_color; ?>">
-					<?php echo sprintf('<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ); ?>
-						<?php
-							if ( has_post_thumbnail() ) {
-								$thumb_id = get_post_thumbnail_id();
-								echo thrive_infobox_picture($thumb_id);
-							}
-							$excerpt = strip_tags(get_the_excerpt());
-						?>
-						<div class="infobox__content">
-							<h2><?php echo $post->post_title; ?></h2>
-							<?php if($excerpt){ echo "<p>" . $excerpt . "</p>"; } ?>
-						</div>
-					</a>
-				</div>
-			<? endforeach; ?>
-		<?php endif; ?>
-	<?php endforeach; ?>
+	<?php if(count($blocks) > 0): ?>
+		<?php foreach($blocks as $post) : ?>
+			<?php $highlight_color = get_post_meta( get_the_ID(), 'thrive_highlight_color', true); ?>
+			<div class="infobox infobox--50 infobox--page infobox--<?php echo $highlight_color; ?>">
+				<?php echo sprintf('<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ); ?>
+					<?php
+						if ( has_post_thumbnail() ) {
+							$thumb_id = get_post_thumbnail_id();
+							echo thrive_infobox_picture($thumb_id);
+						}
+						$excerpt = strip_tags(get_the_excerpt());
+					?>
+					<div class="infobox__content">
+						<h2><?php echo $post->post_title; ?></h2>
+						<?php if($excerpt){ echo "<p>" . $excerpt . "</p>"; } ?>
+					</div>
+				</a>
+			</div>
+		<? endforeach; ?>
+	<?php endif; ?>
 
 	</section>
 

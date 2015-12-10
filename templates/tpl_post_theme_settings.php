@@ -7,18 +7,16 @@
   );
 ?>
 
-<p><strong>Display on homepage</strong></p>
+<p>
+  <strong>Display order on homepage (eg: 3)</strong><br />
+  <small>Leave empty to hide from page)</small>
+</p>
+
 <?php
-  foreach($featured_options as $key => $label) {
-    printf(
-      '<input type="radio" name="thrive_featured_page" value="%1$s" id="thrive_featured_page[%1$s]" %3$s />'.
-      '<label for="thrive_featured_page[%1$s]"> %2$s ' .
-      '</label><br>',
-      esc_attr($key),
-      esc_html($label),
-      checked($saved_homepage, $key, false)
-    );
-  }
+  printf(
+    '<input type="text" name="thrive_featured_page" id="thrive_featured_page" value="%1$s" size="4" />',
+    $saved_homepage
+  );
 ?>
 
 <p><strong>Highlight colour</strong></p>

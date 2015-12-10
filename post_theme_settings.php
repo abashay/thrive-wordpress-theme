@@ -29,7 +29,7 @@
     // Get saved value, if none exists, set a default selected
     $saved_homepage = get_post_meta( $post->ID, 'thrive_featured_page', true);
     if( !$saved_homepage ) {
-      $saved_homepage = '0';
+      $saved_homepage = '';
     }
 
     $saved_highlight_colour = get_post_meta( $post->ID, 'thrive_highlight_color', true);
@@ -40,19 +40,6 @@
     $saved_banner_text = get_post_meta( $post->ID, 'banner-text', true);
     if( !$saved_banner_text ){
       $saved_banner_text = '';
-    }
-
-    if( $post->post_type == 'post') {
-      $featured_options = array(
-        '0'       => 'No',
-        '1'      => 'Yes',
-      );
-    } else {
-      $featured_options = array(
-        '0'       => 'No',
-        '1'      => 'Top',
-        '2'   => 'Bottom'
-      );
     }
 
     $highlight_options = array(
@@ -80,7 +67,10 @@
     }
 
     if ( isset($_POST['thrive_featured_page']) && $_POST['thrive_featured_page'] != "" ){
-      update_post_meta( $post_id, 'thrive_featured_page', $_POST['thrive_featured_page'] );
+      $order = (int)$_POST['thrive_featured_page'];
+      update_post_meta( $post_id, 'thrive_featured_page', $order );
+    } else {
+      delete_post_meta( $post_id, 'thrive_featured_page' );
     }
   }
 
