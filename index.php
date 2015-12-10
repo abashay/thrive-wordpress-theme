@@ -28,8 +28,6 @@ get_header(); ?>
 
 				<h1>Stories</h1>
 
-				<p>This is an intro paragraph</p>
-
 			</div>
 
 		</div>
