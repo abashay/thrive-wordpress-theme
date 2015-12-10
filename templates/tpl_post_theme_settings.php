@@ -9,7 +9,7 @@
 
 <p>
   <strong>Display order on homepage (eg: 3)</strong><br />
-  <small>Leave empty to hide from page)</small>
+  <small>Leave empty to hide from page</small>
 </p>
 
 <?php
