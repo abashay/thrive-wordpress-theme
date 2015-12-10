@@ -883,3 +883,44 @@ footer {
     .page-numbers.current {
         font-weight: normal;
     }
+
+/* TODO: A lot better here please? K thx bai; */
+.sagedonateform {}
+
+.sagedonateform input[type=text],
+.sagedonateform input[type=email],
+.sagedonateform select {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+}
+
+.sagedonateform label label {
+    margin-left: 35px;
+    display: block;
+}
+
+.sagedonateform label input {
+    float: left;
+}
+
+.sagedonateform__giftaid {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin: 20px 0;
+    padding: 20px 0 0;
+}
+
+.sagedonateform__footnote {
+    border-top: 1px solid #ccc;
+    font-size: 0.825em;
+    margin-top: 10px;
+    padding: 10px 0 0;
+}
+
+.sagedonateform .required,
+.sagedonateform .validation {
+    color: red;
+    font-size: 0.825em;
+    font-weight: bold;
+}
