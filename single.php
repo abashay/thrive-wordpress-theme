@@ -19,7 +19,7 @@
 
 			<div class="banner__overlay">
 
-				<div class="banner__overlay__text g_main_content g_main_content--lonely">
+				<div class="banner__overlay__text">
 
 					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
@@ -51,41 +51,34 @@
 
 <?php endwhile; // End the loop. ?>
 
-<?php
-	$items = 5;
-	$quandry = array(
-		'posts_per_page' => $items,
-		'post_status' => 'publish',
-		'post_type' => 'post',
-		'order' => 'DESC',
-		'exclude' => $exclude_id
-	);
-	$blocks = get_posts($quandry);
-?>
-
 	<aside class="g_sidebar">
 		<div class="break-site-padding">
 			<?php
-				$items -= 1;
-				foreach($blocks as $post) :
-				if ($items == 0) { break; } $items -= 1; ?>
-				<?php $highlight_color = get_post_meta( get_the_ID(), 'thrive_highlight_color', true); ?>
-				<div class="infobox infobox--50 infobox--page infobox--<?php echo $highlight_color; ?>">
-					<?php echo sprintf('<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ); ?>
-						<?php
-							if ( has_post_thumbnail() ) {
-								$thumb_id = get_post_thumbnail_id();
-								echo thrive_infobox_picture($thumb_id);
-							}
-							$excerpt = strip_tags(get_the_excerpt());
-						?>
-						<div class="infobox__content">
-							<h2><?php echo $post->post_title; ?></h2>
-							<?php if($excerpt){ echo "<p>" . $excerpt . "</p>"; } ?>
-						</div>
-					</a>
-				</div>
-			<? endforeach; ?>
+				// This is repeated on `page-home` and should be improved
+				$quandry = array(
+					'posts_per_page' => 4,
+					'post_status' => 'publish',
+					'post_type' => 'post',
+					'order' => 'DESC',
+					'exclude' => $exclude_id
+				);
+
+				$blocks = get_posts($quandry);
+
+				foreach($blocks as $post) {
+
+					$highlight_color = get_post_meta( get_the_ID(), 'thrive_highlight_color', true);
+					$infobox = (object) array(
+						'title' => $post->post_title,
+						'link' => esc_url( get_permalink() ),
+						'excerpt' => strip_tags(get_the_excerpt()),
+						'thumbnail_id' => get_post_thumbnail_id(),
+						'classes' => 'infobox infobox--50 infobox--page infobox--' . $highlight_color
+					);
+					include('templates/tpl_infobox.php');
+
+				} // End foreach $block
+			?>
 		</div>
 	</aside>
 

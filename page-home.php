@@ -1,16 +1,5 @@
 <?php
 
-$quandry = array(
-	'posts_per_page' => 10,
-	'post_status' => 'publish',
-	'post_type' => 'any',
-	'meta_key' => 'thrive_featured_page',
-	'orderby' => 'meta_value',
-	'order' => 'ASC',
-);
-
-$blocks = get_posts($quandry);
-
 get_header(); ?>
 
 	<section class="banner banner--home">
@@ -49,28 +38,32 @@ get_header(); ?>
 
 	<section>
 
-	<?php // TODO: Tidy this up ?>
+	<?php
+		$quandry = array(
+			'posts_per_page' => 10,
+			'post_status' => 'publish',
+			'post_type' => 'any',
+			'meta_key' => 'thrive_featured_page',
+			'orderby' => 'meta_value',
+			'order' => 'ASC',
+		);
 
-	<?php if(count($blocks) > 0): ?>
-		<?php foreach($blocks as $post) : ?>
-			<?php $highlight_color = get_post_meta( get_the_ID(), 'thrive_highlight_color', true); ?>
-			<div class="infobox infobox--50 infobox--page infobox--<?php echo $highlight_color; ?>">
-				<?php echo sprintf('<a href="%s" rel="bookmark">', esc_url( get_permalink() ) ); ?>
-					<?php
-						if ( has_post_thumbnail() ) {
-							$thumb_id = get_post_thumbnail_id();
-							echo thrive_infobox_picture($thumb_id);
-						}
-						$excerpt = strip_tags(get_the_excerpt());
-					?>
-					<div class="infobox__content">
-						<h2><?php echo $post->post_title; ?></h2>
-						<?php if($excerpt){ echo "<p>" . $excerpt . "</p>"; } ?>
-					</div>
-				</a>
-			</div>
-		<? endforeach; ?>
-	<?php endif; ?>
+		$blocks = get_posts($quandry);
+
+		foreach($blocks as $post) {
+
+			$highlight_color = get_post_meta( get_the_ID(), 'thrive_highlight_color', true);
+			$infobox = (object) array(
+				'title' => $post->post_title,
+				'link' => esc_url( get_permalink() ),
+				'excerpt' => strip_tags(get_the_excerpt()),
+				'thumbnail_id' => get_post_thumbnail_id(),
+				'classes' => 'infobox infobox--50 infobox--page infobox--' . $highlight_color
+			);
+			include('templates/tpl_infobox.php');
+
+		} // End foreach $block
+	?>
 
 	</section>
 
