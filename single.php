@@ -52,7 +52,7 @@
 <?php endwhile; // End the loop. ?>
 
 <?php
-	$items = 7;
+	$items = 5;
 	$quandry = array(
 		'posts_per_page' => $items,
 		'post_status' => 'publish',
