@@ -361,6 +361,13 @@ footer {
             text-align: left;
         }
 
+        @media (max-width: 530px) {
+            /* TODO- better solution for this hack */
+            .banner__overlay p {
+                display: none;
+            }
+        }
+
         .banner__overlay .btn{
             border-radius: 4px;
             margin-top: 1em;
