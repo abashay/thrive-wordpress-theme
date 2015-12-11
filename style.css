@@ -160,13 +160,27 @@ footer {
 
 
     .footer__thrive {
-        align-items: stretch;
+        -webkit-box-align: stretch;
+        -webkit-align-items: stretch;
+            -ms-flex-align: stretch;
+                align-items: stretch;
         background-color: rgb(58, 58, 58);
         color: #fff;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
         display: flex;
-        flex-direction: column;
-        flex-flow: row wrap;
-        justify-content: space-around;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-flex-flow: row wrap;
+            -ms-flex-flow: row wrap;
+                flex-flow: row wrap;
+        -webkit-justify-content: space-around;
+            -ms-flex-pack: distribute;
+                justify-content: space-around;
         overflow: hidden;
     }
 
@@ -254,7 +268,11 @@ footer {
 
     @media (max-width: 675px) {
         .footer__thrive {
-            flex-direction: column-reverse;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: reverse;
+            -webkit-flex-direction: column-reverse;
+                -ms-flex-direction: column-reverse;
+                    flex-direction: column-reverse;
         }
 
         .footer__thrive__signup {
