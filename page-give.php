@@ -77,7 +77,7 @@ while ( have_posts() ) : the_post(); ?>
                             <input class="giveform__form__buttons" type="submit" value="£75" name="amount" />
                         </form>
                         <form class="" method="get" action="<?php echo $donate_url; ?>">
-                            <input class="giveform__form__buttons" type="submit" value="£? - Other" name="" />
+                            <input class="giveform__form__buttons" type="submit" value="£Other" name="" />
                         </form>
                     </div>
                 </div>
@@ -118,7 +118,7 @@ while ( have_posts() ) : the_post(); ?>
             <img src="<?php echo $image_folder . 'give/give75.jpg'; ?>" />
             <div class="infobox__content">
                 <h2>£75</h2>
-                <p>£75 could allow a high-risk young person to receive specialist mentoring from one of our qualified youth workers</p>
+                <p>£75 could allow a young person facing a particularly tough situation to receive weekly mentoring from one of our qualified youth workers for a month</p>
             </div>
         </a>
     </div>
