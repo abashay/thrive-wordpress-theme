@@ -177,7 +177,7 @@ footer {
         }
 
         .footer__thrive__navigation {
-            padding: 4%;
+            padding: 20px 4%;
             width: 50%;
         }
 
@@ -188,7 +188,7 @@ footer {
             }
 
         .footer__thrive__search {
-            padding: 4%;
+            padding: 20px 4%;
             width: 25%;
             text-align: right;
         }
@@ -207,7 +207,7 @@ footer {
 
         .footer__thrive__signup {
             background-color: rgb(52, 203, 204);
-            padding: 4%;
+            padding: 20px 4%;
             width: 25%;
         }
 
