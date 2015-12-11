@@ -349,9 +349,13 @@ footer {
             padding: 40px;
             text-align: left;
             width: 75%;
-
             position: absolute;
             bottom: 0;
+        }
+
+        .banner__overlay__text__container {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .banner__overlay h1 {
@@ -386,14 +390,6 @@ footer {
             bottom: 0;
         }
 
-
-/*    .banner--400 .banner__hero {
-        max-height: 400px;
-    }
-
-    .banner--600 .banner__hero {
-        max-height: 600px;
-    }*/
 
     .mobile-menu-toggle { display: none;}
 

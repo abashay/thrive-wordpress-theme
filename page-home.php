@@ -27,11 +27,15 @@ get_header(); ?>
 
 					<div class="banner__overlay__text">
 
-						<h1>Should your circumstances dictate your destiny?</h1>
+						<div class="banner__overlay__text__container">
 
-						<span class="btn">
-							Find out more
-						</span>
+							<h1>Should your circumstances dictate your destiny?</h1>
+
+							<span class="btn">
+								Find out more
+							</span>
+
+						</div>
 
 					</div>
 
