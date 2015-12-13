@@ -337,7 +337,6 @@ function thrive_get_project_team($atts) {
     ), $atts );
 
     $args = array(
-		'category_name'	=> $atts['category'],
         'post_type'     => 'thrive_team',
         'sort_column' 	=> 'menu_order',
         'order'			=> 'ASC',
@@ -350,13 +349,9 @@ function thrive_get_project_team($atts) {
 
     $team_members = get_posts( $args );
 
-    $output = '';
-    foreach ($team_members as $team) {
-
-    	$output .= '<h2>' . $team->post_title . '</h2>';
-    	$output .= '<p>' . $team->post_content . '</p>';
-    }
-
-	return $output;
+    // Buffer the output...
+    ob_start();
+    include_once('templates/tpl_team.php');
+    return ob_get_clean();
 }
 add_shortcode( 'thrive_team', 'thrive_get_project_team' );
