@@ -355,3 +355,38 @@ function thrive_get_project_team($atts) {
     return ob_get_clean();
 }
 add_shortcode( 'thrive_team', 'thrive_get_project_team' );
+
+
+function thrive_infobox_category($atts) {
+
+    // Look up category information
+    if ( !isset($atts['category']) ) { return; }
+    $cat = get_category_by_slug( $atts['category'] );
+    if ( !isset($cat->term_id) ) { return; }
+    $cat_link = get_category_link( $cat->term_id );
+
+    $infobox = (object) array(
+        'title' => sprintf("Stories from %s", $cat->name ),
+        'excerpt' => $cat->description,
+        'link' => esc_url( get_category_link( $cat->term_id ) ),
+        'image' => sprintf(
+            "%s/assets/young-achievers-dinner-2013_sq.jpg",
+            get_template_directory_uri() ),
+        'classes' => 'infobox infobox--50 infobox--page'
+    );
+
+    // Get image from the page
+    $page = get_page_by_title($atts['category']);
+    if ( isset( $page->ID ) ) {
+        $infobox->thumbnail_id = get_post_thumbnail_id($page->ID);
+    }
+
+    // Buffer the output...
+    ob_start();
+    echo '<div class="break-site-padding">';
+    include('templates/tpl_infobox.php');
+    echo '</div>';
+    return ob_get_clean();
+}
+add_shortcode( 'thrive_linkto_stories', 'thrive_infobox_category' );
+

@@ -2,12 +2,16 @@
 
     <a href="<?php echo $infobox->link; ?>" rel="bookmark">
 
-        <?php echo thrive_infobox_picture($infobox->thumbnail_id); ?>
+        <?php if (isset( $infobox->thumbnail_id ) ) {
+            echo thrive_infobox_picture($infobox->thumbnail_id);
+        } else if ( isset( $infobox->image ) ) {
+            echo sprintf("<img src='%s'> alt='' />", $infobox->image);
+        } ?>
 
         <div class="infobox__content">
             <h2><?php echo $infobox->title; ?></h2>
 
-            <?php if($infobox->excerpt):?>
+            <?php if(isset($infobox->excerpt)):?>
             <p><?php echo $infobox->excerpt ?></p>
             <?php endif; ?>
         </div>
