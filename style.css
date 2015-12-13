@@ -978,10 +978,19 @@ footer {
 }
 
 .pagination {
-    padding: 20px 40px;
-    text-align: center;
+    display: inline;
     font-weight: bold;
+    text-align: center;
+    padding: 20px 40px;
 }
+
+    .pagination a {
+        color: #000000;
+        text-decoration: none
+    }
+        .pagination a:hover {
+            border-bottom: 1px solid #000000;
+        }
 
     .page-numbers {
         padding: 0 5px;

@@ -135,13 +135,19 @@ function thrive_setup() {
   	register_taxonomy( 'endorsement_tags', 'thrive_endorsement', array() );
 
 }
-endif; // twentyfifteen_setup
+endif;
 add_action( 'after_setup_theme', 'thrive_setup' );
+
+// Override default behaviour when returning category title
+add_filter( 'get_the_archive_title', function ( $title ) {
+    if( is_category() ) {
+        $title = single_cat_title( 'Stories: ', false );
+    }
+    return $title;
+});
 
 /**
  * Enqueue scripts and styles.
- *
- * @since Twenty Fifteen 1.0
  */
 function thrive_styles_and_scripts() {
 
