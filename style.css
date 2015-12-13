@@ -492,6 +492,11 @@ footer {
     transform: scale(1.1);
 }
 
+    .infobox--endorsement:hover img {
+        -webkit-filter: none;
+        transform: none;
+    }
+
 .infobox--50 {
     width: 50%;
     height: 0;
@@ -542,9 +547,12 @@ footer {
     }
 
     .infobox--endorsement__roundedimg {
-        width: 30%;
+        width: 50%;
+        height: 0;
+        padding-bottom: 50%;
+        margin: 0 auto;
+        border-radius: 50%;
         overflow: hidden;
-        margin: 10% auto 5%;
     }
 
     .infobox--endorsement .infobox__content {
