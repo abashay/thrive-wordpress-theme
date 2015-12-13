@@ -201,6 +201,40 @@ footer {
                 padding-right: 8%;
             }
 
+            /* TODO: Horrible selector is horrible; */
+            .footer__thrive__navigation div.menu-footer-overflow-container {
+                float: none;
+            }
+
+        .footer__navigation--social_media li {
+            display: inline;
+            padding-right: 7px;
+        }
+
+            .social_media_icon a {
+                background-repeat: no-repeat;
+                background-size: contain;
+                display: inline-block;
+                height: 32px;
+                text-indent: -999px;
+                width: 32px;
+            }
+
+                .social_media_icon a:hover{
+                    border-bottom: 0;
+                    transform: rotate(10deg)
+                }
+
+                .social_media_icon--twitter a {
+                    background-image: url('/wp-content/themes/thrive-wordpress-theme/assets/icons/twitter.png');
+                    background-image: url('/wp-content/themes/thrive-wordpress-theme/assets/icons/twitter.svg');
+                }
+
+                .social_media_icon--facebook a {
+                    background-image: url('/wp-content/themes/thrive-wordpress-theme/assets/icons/facebook.png');
+                    background-image: url('/wp-content/themes/thrive-wordpress-theme/assets/icons/facebook.svg');
+                }
+
         .footer__thrive__search {
             padding: 20px 4%;
             width: 25%;

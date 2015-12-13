@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.2 (15855) - http://www.bohemiancoding.com/sketch -->
+    <title>Facebook@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Facebook" sketch:type="MSArtboardGroup">
+            <circle id="Oval-1" fill="#A7A9AC" sketch:type="MSShapeGroup" cx="16" cy="16" r="16"></circle>
+            <path d="M16.9571956,24 L13.651845,24 L13.651845,15.9990775 L12,15.9990775 L12,13.2420664 L13.651845,13.2420664 L13.651845,11.5867159 C13.651845,9.33745388 14.5841328,8 17.2335793,8 L19.4394834,8 L19.4394834,10.7575646 L18.0607011,10.7575646 C17.0291512,10.7575646 16.9612546,11.1428044 16.9612546,11.8619926 L16.9571955,13.2420665 L19.4549815,13.2420665 L19.1627306,15.9990775 L16.9571955,15.9990775 L16.9571955,24 L16.9571956,24 Z" id="path10" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

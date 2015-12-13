@@ -20,6 +20,12 @@
 							) );
 						}
 					?>
+					<div class="menu-footer-social-media-container">
+						<ul id="menu-footer-social-media" class="footer__navigation--gamma footer__navigation--social_media social_media_icon">
+							<li class="menu-item social_media_icon--twitter"><a href="https://twitter.com/thriveteams" target="_blank">Follow us on Twitter</a></li>
+							<li class="menu-item social_media_icon--facebook"><a href="https://www.facebook.com/thriveteams" target="_blank">Like us on Facebook</a></li>
+						</ul>
+					</div>
 				</nav>
 			<?php endif; ?>
 
