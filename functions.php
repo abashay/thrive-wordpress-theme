@@ -161,6 +161,8 @@ function thrive_styles_and_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'thrive_styles_and_scripts' );
 
+// Lets remove the junk that is WP Emogi.
+// HT: http://wordpress.stackexchange.com/questions/185577/disable-emojicons-introduced-with-wp-4-2
 function disable_wp_emojicons() {
 
   // all actions related to emojis
@@ -174,6 +176,13 @@ function disable_wp_emojicons() {
 
   // filter to remove TinyMCE emojis
   add_filter( 'tiny_mce_plugins', 'disable_emojicons_tinymce' );
+}
+function disable_emojicons_tinymce( $plugins ) {
+  if ( is_array( $plugins ) ) {
+    return array_diff( $plugins, array( 'wpemoji' ) );
+  } else {
+    return array();
+  }
 }
 add_action( 'init', 'disable_wp_emojicons' );
 
