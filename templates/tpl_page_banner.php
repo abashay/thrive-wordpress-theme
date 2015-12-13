@@ -8,17 +8,18 @@
     <div class="banner__main">
 
         <div class="banner__hero">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/banner.jpg" alt="" />
+            <?php echo sprintf('<img src="%s" alt="" />', $banner->image); ?>
         </div>
 
         <div class="banner__overlay">
             <div class="banner__overlay__text">
-                <h1><?php echo $banner->title; ?></h1>
+                <?php
+                    echo sprintf('<h1>%s</h1>', $banner->title);
 
-                <?php if ($banner->subtitle) : ?>
-                    <p><?php echo $banner->subtitle; ?></p>
-                <?php endif; ?>
-
+                    if ($banner->subtitle) {
+                        echo sprintf('<p>%s</p>', $banner->subtitle);
+                    }
+                ?>
             </div>
         </div>
     </div>
