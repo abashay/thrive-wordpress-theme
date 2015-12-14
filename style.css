@@ -1093,3 +1093,19 @@ footer {
     font-size: 0.825em;
     font-weight: bold;
 }
+
+.sagedonateform__amount,
+.sagedonateform__name,
+.sagedonateform__address {
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.sagedonateform .btn--submit {
+    background-color: #34cbcc;
+    border-radius: 4px;
+}
+
+    .sagedonateform .btn--submit:hover {
+        background-color: #71dbdb;
+    }
