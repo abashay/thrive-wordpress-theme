@@ -233,10 +233,10 @@ function thrive_get_subpages($atts) {
         'width' => '50',
     ), $atts );
 
-	if (!isset($atts['parent'])) {
-		// Should be accessed via the loop so functions like `the_id()` will work
-		$atts['parent'] = get_the_id();
-	}
+    if ( !isset($atts['parent']) ) {
+        // Should be accessed via the loop so functions like `the_id()` will work
+        $atts['parent'] = get_the_id();
+    }
 
 	$args = array(
         'post_type'      => 'page',
@@ -251,8 +251,10 @@ function thrive_get_subpages($atts) {
         )
      );
 
-    $children = new WP_Query( $args );
-	return thrive_return_post_infobox( $children->posts, $atts );
+    if ( isset($atts['exclude']) ) { $args['exclude'] = $atts['exclude']; }
+
+    $children = get_posts($args);
+	return thrive_return_post_infobox( $children, $atts );
 
 }
 add_shortcode( 'infobox_subpages', 'thrive_get_subpages' );

@@ -13,6 +13,7 @@ $banner = (object) array(
 );
 
 $subpages = array(
+    'exclude' => get_the_ID(),
     'parent' => wp_get_post_parent_id( get_the_ID() ),
     'cover' => false,
     'width'=>'33'
