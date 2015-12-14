@@ -532,8 +532,8 @@ footer {
     top: 0;
 }
     .infobox--cover .infobox__content h2 {
-        font-size: 65px;
-        line-height: 75px;
+        font-size: 3em;
+        line-height: 1.3em;
     }
 
 /* TODO: Fix this up later */
@@ -678,6 +678,13 @@ footer {
             padding-bottom: 100%;
         }
 
+}
+
+@media all and (max-width: 800px) {
+    .infobox--33 {
+        width: 50%;
+        padding-bottom: 50%;
+    }
 }
 
 
