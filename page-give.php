@@ -123,11 +123,12 @@ while ( have_posts() ) : the_post(); ?>
         </a>
     </div>
 
-    <div class="infobox infobox--50 infobox--post">
-        <a href="#">
+    <div class="infobox infobox--50 infobox--blue">
+        <a href="/give/other-ways-to-give/">
+            <img src="<?php echo $image_folder . 'give/post.jpg'; ?>" />
             <div class="infobox__content">
-                <h2>Give by post</h2>
-                <p>You can still give via good old fashioned post! Cheques should be made payable to ‘Thrive’ and sent to Thrive, Suite A First Floor, Meridian House, Sandy Lane West, Oxford, OX4 6LB, UK. Please don’t send cash in the post.</p>
+                <h2>Other ways to give</h2>
+                <p>Send a cheque, fundraise for us, remember us in your will – there’s lots of ways you can help.</p>
             </div>
         </a>
     </div>

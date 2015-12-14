@@ -564,16 +564,6 @@ footer {
         background-color: rgba(225, 30, 85, 0.7);
     }
 
-.infobox--post {
-	background-color: #030366;
-}
-	.infobox--post .infobox__content{
-		background-color: transparent;
-		top: 0;
-		padding: 8%;
-		bottom: auto;
-	}
-
 .infobox--red .infobox__content   { background-color: rgba(225, 30, 85, 0.7); }
 .infobox--green .infobox__content { background-color: rgba(66, 193, 200, 0.7); }
 .infobox--blue .infobox__content  { background-color: rgba(0, 0, 102, 0.7); }
@@ -681,6 +671,9 @@ footer {
 
 
 /* Give form */
+.banner--give h1 {
+    display: none;
+}
 .banner--give__text,
 .banner--give__form {
 	float: left;
