@@ -536,6 +536,11 @@ footer {
         line-height: 75px;
     }
 
+/* TODO: Fix this up later */
+.infobox--endorsement {
+    display: none !important;
+}
+
 .infobox--endorsement {
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.8);
