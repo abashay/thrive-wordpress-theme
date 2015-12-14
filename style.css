@@ -97,6 +97,13 @@ header {
             display: inherit;
         }
 
+        @media (min-width: 675px) {
+            .current_page_item a,
+            .current-page-ancestor a {
+                border-bottom: 2px solid white;
+            }
+        }
+
 .content_container {
     display: block;
     clear: both;
