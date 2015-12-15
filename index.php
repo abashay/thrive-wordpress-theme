@@ -14,28 +14,23 @@
  * @since Twenty Fifteen 1.0
  */
 
-get_header(); ?>
+$page_id = get_option( 'page_for_posts' );
 
-	<section class="banner banner--400">
+// Set up page banner
+$image = wp_get_attachment_image_src(
+	get_post_thumbnail_id($page_id),
+	'large',
+	false);
 
-		<div class="banner__main">
+$banner = (object) array(
+    'title' => 'Stories',
+    'image' => $image[0]
+);
 
-			<div class="banner__hero">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/banner.jpg" alt="" />
-			</div>
+get_header();
 
-			<div class="banner__overlay">
-
-				<div class="banner__overlay__text">
-
-					<h1>Stories</h1>
-
-				</div>
-
-			</div>
-		</div>
-
-	</section>
+// Output page banner
+include_once('templates/tpl_page_banner.php');?>
 
 	<section class="postlist" role="main">
 

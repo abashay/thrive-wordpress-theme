@@ -16,7 +16,7 @@
                 <?php
                     echo sprintf('<h1>%s</h1>', $banner->title);
 
-                    if ($banner->subtitle) {
+                    if ( isset( $banner->subtitle ) ) {
                         echo sprintf('<p>%s</p>', $banner->subtitle);
                     }
                 ?>

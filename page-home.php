@@ -1,5 +1,16 @@
 <?php
 
+$page_id = get_option( 'page_on_front' );
+$image = wp_get_attachment_image_src(
+	get_post_thumbnail_id(),
+	'large',
+	false);
+if( isset( $image[0]) ){
+	$image_url = $image[0];
+} else {
+	$image_url = get_template_directory_uri() . "/assets/banner.jpg";
+}
+
 get_header(); ?>
 
 	<section class="banner banner--home">
@@ -9,7 +20,7 @@ get_header(); ?>
 			<div class="banner__main">
 
 				<div class="banner__hero">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/banner.jpg" alt="" />
+					<img src="<?php echo $image_url;?>" alt="" />
 				</div>
 
 				<div class="banner__overlay">
