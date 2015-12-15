@@ -30,7 +30,12 @@ while ( have_posts() ) : the_post();
 ?>
 
 
-<?php if ( preg_match( '#^teams/.+/.+?$#', $wp->request ) OR preg_match( '#^about/.+/?$#', $wp->request ) OR preg_match( '#^join/.+/?$#', $wp->request ) ) : ?>
+<?php
+    // TODO: Tidy this up:
+    if ( preg_match( '#^teams/.+/.+?$#', $wp->request )
+           OR preg_match( '#^about/.+/?$#', $wp->request )
+           OR preg_match( '#^info/.+/?$#', $wp->request )
+           OR preg_match( '#^join/.+/?$#', $wp->request ) ) : ?>
 
     <section class="post__content g_main_content">
 
