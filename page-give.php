@@ -98,7 +98,7 @@ while ( have_posts() ) : the_post(); ?>
             <img src="<?php echo $image_folder . 'give/give25.jpg'; ?>" />
             <div class="infobox__content">
                 <h2>£25</h2>
-                <p>£25 could give young person one month's mentoring in a safe space with a trained volunteer</p>
+                <p>£25 could give a young person one month's mentoring in a safe space with a trained volunteer</p>
             </div>
         </a>
     </div>
