@@ -807,12 +807,6 @@ footer {
                 max-height: auto;
             }
 
-                .banner--give .banner__hero img {
-                    height: 100%;
-                    width: auto;
-                    max-width: none;
-                }
-
         .banner--give__text,
         .banner--give__form {
             width: 100%;
