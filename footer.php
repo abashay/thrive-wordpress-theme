@@ -1,92 +1,99 @@
-	</div><!-- .content_container -->
+  </div><!-- .content_container -->
 
-	<footer class="footer" role="contentinfo">
+  <footer class="footer" role="contentinfo">
 
-		<section class="footer__thrive">
-			<?php if ( has_nav_menu( 'footer-a' ) || has_nav_menu( 'footer-b' ) ) : ?>
-				<nav class="footer__thrive__navigation" role="navigation">
-					<?php
-						if ( has_nav_menu( 'footer-a' ) ) {
-							wp_nav_menu( array(
-								'menu_class'     => 'footer__navigation--alpha',
-								'theme_location' => 'footer-a',
-							) );
-						}
+    <section class="footer__thrive">
 
-						if ( has_nav_menu( 'footer-b' ) ) {
-							wp_nav_menu( array(
-								'menu_class'     => 'footer__navigation--beta',
-								'theme_location' => 'footer-b',
-							) );
-						}
-					?>
-					<div class="menu-footer-social-media-container">
-						<ul id="menu-footer-social-media" class="footer__navigation--gamma footer__navigation--social_media social_media_icon">
-							<li class="menu-item social_media_icon--twitter"><a href="https://twitter.com/thriveteams" target="_blank">Follow us on Twitter</a></li>
-							<li class="menu-item social_media_icon--facebook"><a href="https://www.facebook.com/thriveteams" target="_blank">Like us on Facebook</a></li>
-						</ul>
-					</div>
-				</nav>
-			<?php endif; ?>
+      <form class="footer__thrive__signup validate" action="//innovista.us6.list-manage.com/subscribe/post?u=4c7a819d6edce6c9c111f6e2d&amp;id=8baf4fdf25" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
+        <div class="mc-field-group">
+          <label class="footer__thrive__signup__label" for="mce-EMAIL">Join our mailing list</label>
+          <div id="mce-responses" class="clear">
+            <div class="response" id="mce-error-response" style="display:none"></div>
+            <div class="response" id="mce-success-response" style="display:none"></div>
+          </div>
+          <input type="email" value="" name="EMAIL" class="footer__thrive__signup__field required email" id="mce-EMAIL" placeholder="your@emailaddress.com">
+        </div>
 
-			<form class="footer__thrive__search" role="search" method="get" action="<?php echo get_site_url(); ?>">
-				<label for="txt_search">
-					<span class="screen-reader-text">Search</span>
-					<input type="text"  title="Search for:" id="txt_search" class="search-field" name="s" placeholder="Search..." />
-				</label>
-				<input type="submit" class="btn search-submit" value="" />
-			</form>
+        <div style="position: absolute; left: -5000px;"><input type="text" name="b_4c7a819d6edce6c9c111f6e2d_8baf4fdf25" tabindex="-1" value=""></div>
+        <input type="hidden" value="2" name="group[6109][2]" id="mce-group[6109]-6109-1">
+        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="footer__thrive__signup__submit">
+
+        <div class="footer__thrive__signup__footnote">We will never pass your details to anyone else.</div>
+      </form>
+
+      <div class="footer__thrive__navigation">
+
+        <form class="footer__thrive__navigation__search f_search" role="search" method="get" action="<?php echo get_site_url(); ?>">
+          <div class="f_search__fieldcontainer">
+            <input type="text"  title="Search for:" id="txt_search" class="" name="s" placeholder="Search..." />
+          </div>
+          <div class="f_search__submitcontainer">
+            <input type="submit" class="" value="" />
+          </div>
+        </form>
+
+        <nav class="footer__thrive__navigation__block" role="navigation">
+          <div class="footer__thrive__navigation__block__primary">
+            <?php
+              if ( has_nav_menu( 'footer-a' ) ) {
+                wp_nav_menu( array(
+                  'theme_location' => 'footer-a',
+                ) );
+              }
+            ?>
+          </div>
+
+          <div class="footer__thrive__navigation__block__secondary">
+            <?php
+              if ( has_nav_menu( 'footer-b' ) ) {
+                wp_nav_menu( array(
+                  'theme_location' => 'footer-b',
+                ) );
+              }
+            ?>
+
+            <div class="footer__thrive__navigation__block__social">
+              <ul id="menu-footer-social-media" class="footer__navigation--gamma footer__navigation--social_media social_media_icon">
+                <li class="menu-item social_media_icon--twitter"><a href="https://twitter.com/thriveteams" target="_blank">Follow us on Twitter</a></li>
+                <li class="menu-item social_media_icon--facebook"><a href="https://www.facebook.com/thriveteams" target="_blank">Like us on Facebook</a></li>
+              </ul>
+            </div>
 
 
-			<form action="//innovista.us6.list-manage.com/subscribe/post?u=4c7a819d6edce6c9c111f6e2d&amp;id=8baf4fdf25" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="footer__thrive__signup validate" target="_blank" novalidate>
+            </div>
+        </nav>
 
-				<div class="footer__form__container">
-					<div class="mc-field-group">
-						<label for="mce-EMAIL">Join our mailing list</label>
-						<div id="mce-responses" class="clear">
-							<div class="response" id="mce-error-response" style="display:none"></div>
-							<div class="response" id="mce-success-response" style="display:none"></div>
-						</div>
-						<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="your@emailaddress.com">
-					</div>
+      </div>
 
-				    <div style="position: absolute; left: -5000px;"><input type="text" name="b_4c7a819d6edce6c9c111f6e2d_8baf4fdf25" tabindex="-1" value=""></div>
-				    <input type="hidden" value="2" name="group[6109][2]" id="mce-group[6109]-6109-1">
-				    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn">
+    </section>
 
-				    <small>We will never pass your details to anyone else.</small>
-			    </div>
-			</form>
+    <section class="footer__innovista flex">
 
-		</section>
+      <div class="footer__innovista__text">
+        <p>Web development by <a href="http://jamesdoc.com" title="Faith, Hope, Love (and web development)" target="_blank">James Doc</a>.</p>
+        <p>Thrive is an initiative of <a href="http://innovista.org" target="_blank">Innovista</a>, Registered Charity no: 1108679.</p>
+      </div>
 
-		<section class="footer__innovista">
+      <div class="footer__innovista__logo">
+        <a href="http://innovista.org" target="_blank">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/innovista-logo.png" alt="Innovista" />
+        </a>
+      </div>
+    </section>
 
-			<div class="footer__innovista__text">
-				<p>Web development by <a href="http://jamesdoc.com" title="Faith, Hope, Love (and web development)" target="_blank">James Doc</a>.</p>
-				<p>Thrive is an initiative of <a href="http://innovista.org" target="_blank">Innovista</a>, Registered Charity no: 1108679.</p>
-			</div>
+  </footer>
 
-			<div class="footer__innovista__logo">
-				<a href="http://innovista.org" target="_blank">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/innovista-logo.png" alt="Innovista" />
-				</a>
-			</div>
-		</section>
+  <?php wp_footer(); ?>
 
-	</footer>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-	<?php wp_footer(); ?>
-
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-		ga('create', 'UA-34203592-4', 'auto');
-		ga('send', 'pageview');
-	</script>
+    ga('create', 'UA-34203592-4', 'auto');
+    ga('send', 'pageview');
+  </script>
 
 </body>
 </html>
