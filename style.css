@@ -225,7 +225,7 @@ footer li {
     }
 
         .footer__thrive__signup__submit:hover {
-            background-color: #f1f1f1;
+            background-color: #3a3a3a;
             color: rgb(52, 203, 204);
         }
 
@@ -699,7 +699,6 @@ footer li {
     .post__meta {
         border-bottom: 1px solid #ccc;
         font-size: 0.825em;
-        padding: 0 40px;
     }
 
         .post__meta p {
@@ -707,7 +706,7 @@ footer li {
         }
 
     .post__content {
-        padding: 40px;
+        padding: 40px 0;
     }
 
         .post__content img {
@@ -721,36 +720,58 @@ footer li {
         margin-top: 1em;
     }
 
+.g_main_content {
+    width: 100%;
+    padding: 4% 10%;
+}
 
-@media all and (min-width: 800px) {
+@media all and (min-width: 950px) {
 
     p {
         font-size: 1.25em;
         margin-bottom: 1.25em;
     }
 
-    .g_main_content, .g_sidebar {
-        float: left;
+    .post-wrapper {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+                flex-direction: row;
     }
 
     .g_main_content {
         width: 67%;
+        padding: 4%;
     }
 
         .g_main_content--lonely{
             margin: 0 16.5%;
+            padding: 4% 0;
         }
 
     .g_sidebar {
+        background-color: #3a3a3a;
         width: 33%;
     }
 
         .g_sidebar .infobox {
-            width: 100%; /* infoboxes must always be 100% width */
+            width: 100%;
             padding-bottom: 100%;
         }
-
 }
+
+@media all and (min-width: 1200px) {
+    .g_main_content { width: 75% }
+    .g_sidebar { width: 25%; }
+}
+
+
+
 
 @media all and (max-width: 800px) {
     .infobox--33 {
@@ -758,7 +779,6 @@ footer li {
         padding-bottom: 50%;
     }
 }
-
 
 
 /* Give form */

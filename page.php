@@ -51,7 +51,7 @@ while ( have_posts() ) : the_post();
 
 <? else: ?>
 
-    <section class="post__content">
+    <section class="post__content g_main_content g_main_content--lonely">
 
         <?php the_content(); ?>
 
