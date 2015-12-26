@@ -139,6 +139,11 @@ footer li {
     display: -ms-flexbox;
     display: flex;
     overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -webkit-box-align: center;
     -webkit-align-items: center;
         -ms-flex-align: center;
@@ -150,13 +155,9 @@ footer li {
 }
 
 .footer__innovista__text {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
     font-size: 0.65em;
-    float: left;
     padding: 4%;
+    width: 100%;
 }
 
 .footer__innovista__text a {
@@ -169,13 +170,20 @@ footer li {
 }
 
 .footer__innovista__logo {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
     padding: 4%;
     text-align: right;
+    width: 100%
 }
+
+    .footer__innovista__logo a {
+        background-image: url('/wp-content/themes/thrive-wordpress-theme/assets/innovista-logo.jpg');
+        background-image: url('/wp-content/themes/thrive-wordpress-theme/assets/innovista-logo.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: block;
+        height: 85px;
+        text-indent: -999px;
+    }
 
 .footer__innovista__logo a:hover{
     border-bottom: none;
@@ -211,7 +219,7 @@ footer li {
     }
 
     .footer__thrive__signup__submit {
-        background-color: #c0c0c0;
+        background-color: transparent;
         text-transform: uppercase;
         color: white;
     }
@@ -268,7 +276,7 @@ footer li {
 
         .f_search__submitcontainer input {
             background: url(/wp-content/themes/thrive-wordpress-theme/assets/icon_search.png) no-repeat center center;
-            background-color: #c0c0c0;
+            background-color: transparent;
             background-size: 80%;
             margin-left: 6px;
             border: 3px solid white;
@@ -279,7 +287,7 @@ footer li {
         }
 
         .f_search__submitcontainer input:hover {
-            background-color: #f1f1f1;
+            background-color: #34cbcc;
         }
 
     .f_search__fieldcontainer input:focus,
@@ -335,6 +343,28 @@ footer li {
         background-image: url('/wp-content/themes/thrive-wordpress-theme/assets/icons/facebook.png');
         background-image: url('/wp-content/themes/thrive-wordpress-theme/assets/icons/facebook.svg');
     }
+
+@media (min-width: 500px) {
+    .footer__innovista {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+                flex-direction: row;
+    }
+
+    .footer__innovista__text {
+        width: 67%;
+    }
+
+    .footer__innovista__logo {
+        width: 33%;
+    }
+
+    .footer__innovista__logo a {
+        background-position: right center;
+    }
+}
 
 @media (min-width: 750px) {
     .footer__thrive__navigation {

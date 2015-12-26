@@ -70,13 +70,13 @@
     <section class="footer__innovista flex">
 
       <div class="footer__innovista__text">
-        <p>Web development by <a href="http://jamesdoc.com" title="Faith, Hope, Love (and web development)" target="_blank">James Doc</a>.</p>
+        <p>Thrive, Meridian House, Sandy Lane West, Littlemore, Oxford, OX4 6LB | thrive@innovista.org | 01865 788350</p>
         <p>Thrive is an initiative of <a href="http://innovista.org" target="_blank">Innovista</a>, Registered Charity no: 1108679.</p>
       </div>
 
       <div class="footer__innovista__logo">
         <a href="http://innovista.org" target="_blank">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/innovista-logo.png" alt="Innovista" />
+          Innovista:  Hope through young leaders
         </a>
       </div>
     </section>
