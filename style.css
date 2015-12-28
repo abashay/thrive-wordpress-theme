@@ -102,6 +102,10 @@ header {
             .header__nav .current-page-ancestor a {
                 border-bottom: 2px solid white;
             }
+
+            header li.current-page-ancestor:last-child a {
+                border-bottom: 0;
+            }
         }
 
 .content_container {
@@ -1175,11 +1179,16 @@ footer li {
     margin: 0 auto;
 }
 
+.sd_redirect__form .sd_redirect__form__btn,
 .sagedonateform .btn--submit {
     background-color: #34cbcc;
-    border-radius: 4px;
+    border-color: #3a3a3a;
 }
 
+    .sd_redirect__form .sd_redirect__form__btn:hover,
     .sagedonateform .btn--submit:hover {
-        background-color: #71dbdb;
+        background-color: #3a3a3a;
+        color: #34cbcc;
     }
+
+
