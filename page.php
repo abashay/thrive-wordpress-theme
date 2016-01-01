@@ -37,6 +37,7 @@ while ( have_posts() ) : the_post();
            OR preg_match( '#^info/.+/?$#', $wp->request )
            OR preg_match( '#^join/.+/?$#', $wp->request ) ) : ?>
 
+    <div class="post-wrapper">
     <section class="post__content g_main_content">
 
         <?php the_content(); ?>
@@ -48,10 +49,11 @@ while ( have_posts() ) : the_post();
         <?php echo thrive_get_subpages($subpages); ?>
 
     </section>
+    </div>
 
 <? else: ?>
 
-    <section class="post__content g_main_content g_main_content--lonely">
+    <section class="post__content">
 
         <?php the_content(); ?>
 

@@ -717,6 +717,15 @@ footer li {
             width: 100%;
         }
 
+        .post__content a {
+            color: #35cdcc;
+            text-decoration: underline;
+        }
+
+        .post__content a:hover {
+            text-decoration: none;
+        }
+
     .post .readmore {
         color: rgba(53, 205, 204, 1);
         font-style: oblique;
