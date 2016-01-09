@@ -1164,14 +1164,15 @@ footer li {
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     margin: 20px 0;
-    padding: 20px 0 0;
+    padding: 20px 40px 0;
 }
 
 .sagedonateform__footnote {
     border-top: 1px solid #ccc;
     font-size: 0.825em;
-    margin-top: 10px;
     padding: 10px 0 0;
+    max-width: 350px;
+    margin: 10px auto;
 }
 
 .sagedonateform .required,
@@ -1183,21 +1184,27 @@ footer li {
 
 .sagedonateform__amount,
 .sagedonateform__name,
-.sagedonateform__address {
+.sagedonateform__address,
+.sagedonateform__mailinglist {
     max-width: 350px;
     margin: 0 auto;
 }
 
 .sd_redirect__form .sd_redirect__form__btn,
-.sagedonateform .btn--submit {
+.sagedonateform__btn--submit {
     background-color: #34cbcc;
     border-color: #3a3a3a;
 }
 
     .sd_redirect__form .sd_redirect__form__btn:hover,
-    .sagedonateform .btn--submit:hover {
+    .sagedonateform__btn--submit:hover {
         background-color: #3a3a3a;
         color: #34cbcc;
     }
+
+.sagedonateform__btn--submit {
+    display:block;
+    margin: 10px auto 20px;
+}
 
 
