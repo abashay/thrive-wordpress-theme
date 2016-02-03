@@ -12,6 +12,8 @@
 
 
 	<?php wp_head(); ?>
+
+	<meta name="description" content="<?php bloginfo('description'); ?>" />
 </head>
 
 <body <?php body_class(); ?>>
