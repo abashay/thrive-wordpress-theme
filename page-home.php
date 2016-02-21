@@ -69,7 +69,7 @@ get_header(); ?>
 				'link' => esc_url( get_permalink() ),
 				'excerpt' => strip_tags(get_the_excerpt()),
 				'thumbnail_id' => get_post_thumbnail_id(),
-				'classes' => 'infobox infobox--50 infobox--page infobox--' . $highlight_color
+				'classes' => 'infobox infobox--33 infobox--page infobox--' . $highlight_color
 			);
 			include('templates/tpl_infobox.php');
 
