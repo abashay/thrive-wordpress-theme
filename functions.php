@@ -138,6 +138,33 @@ function thrive_setup() {
 endif;
 add_action( 'after_setup_theme', 'thrive_setup' );
 
+// Customise login form
+function customise_login_logo() { ?>
+    <style type="text/css">
+        .login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/assets/thrive-logo.png);
+        }
+        #wp-submit {
+            background: #14165e;
+            border-color: #14165e #0d0749 #0d0749;
+            -webkit-box-shadow: 0 1px 0 #0d0749;
+            box-shadow: 0 1px 0 #0d0749;
+            text-shadow: 0 -1px 1px #0d0749,1px 0 1px #0d0749,0 1px 1px #0d0749,-1px 0 1px #0d0749;
+        }
+    </style>
+<?php }
+
+function customise_login_logo_url() {
+    return home_url();
+}
+
+function customise_login_logo_url_title() {
+    return 'Thrive Teams';
+}
+add_action( 'login_enqueue_scripts', 'customise_login_logo' );
+add_filter( 'login_headerurl', 'customise_login_logo_url' );
+add_filter( 'login_headertitle', 'customise_login_logo_url_title' );
+
 // Override default behaviour when returning category title
 add_filter( 'get_the_archive_title', function ( $title ) {
     if( is_category() ) {
