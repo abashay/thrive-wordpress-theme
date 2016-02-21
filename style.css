@@ -703,6 +703,10 @@ footer li {
         max-width: 700px;
     }
 
+        .post__content--nosidebar {
+            padding: 40px;
+        }
+
         .post__content__headline {
             font-size: 1.5em;
             letter-spacing: 2px;
@@ -1197,7 +1201,33 @@ footer li {
 
 
 /* TODO: A lot better here please? K thx bai; */
-.sagedonateform {}
+.sagedonatepage .banner__overlay__text {
+    width: 100%;
+}
+
+.sagedonatepage .banner__overlay__text h1 {
+    text-align: center;
+    margin-bottom: 85px;
+}
+.sagedonatepage .banner__overlay__text p {
+    text-indent: -999999px;
+}
+
+.sagedonateform {
+    position: relative;
+    margin: -200px auto 0;
+    max-width: 500px;
+    background: white;
+    padding: 50px 20px;
+    border: 2px solid rgb(52, 203, 204);
+}
+
+.sagedonateform label{
+    color: #404042;
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
 
 .sagedonateform input[type=text],
 .sagedonateform input[type=email],
@@ -1216,51 +1246,128 @@ footer li {
     float: left;
 }
 
-.sagedonateform__giftaid {
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    margin: 20px 0;
-    padding: 20px 40px 0;
-}
 
 .sagedonateform__footnote {
     border-top: 1px solid #ccc;
-    font-size: 0.825em;
     padding: 10px 0 0;
-    max-width: 350px;
+}
+
+.sagedonateform__footnote p {
+    font-size: 0.825em;
+    font-weight: bold;
+    color: #6d6e72;
     margin: 10px auto;
+    max-width: 350px;
 }
 
 .sagedonateform .required,
 .sagedonateform .validation {
-    color: red;
-    font-size: 0.825em;
+    color: #34cbcc;
+    font-size: 1em;
     font-weight: bold;
+}
+
+p.sagedonateform__required {
+    max-width: 350px;
+    margin: 0 auto 30px;
 }
 
 .sagedonateform__amount,
 .sagedonateform__name,
 .sagedonateform__address,
+.sagedonateform__giftaid,
 .sagedonateform__mailinglist {
     max-width: 350px;
     margin: 0 auto;
 }
 
-.sd_redirect__form .sd_redirect__form__btn,
-.sagedonateform__btn--submit {
-    background-color: #34cbcc;
-    border-color: #3a3a3a;
+.sagedonateform__amount {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-    .sd_redirect__form .sd_redirect__form__btn:hover,
-    .sagedonateform__btn--submit:hover {
-        background-color: #3a3a3a;
-        color: #34cbcc;
-    }
+.sagedonateform__mailinglist {
+    border-bottom: 1px solid #ccc;
+    margin: 20px auto;
+}
+
+.sagedonateform__giftaid {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+}
+
+.sagedonateform__giftaid h2 {
+    color: #404042;
+    display: block;
+    text-transform: none;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.sagedonateform__giftaid__information {
+    padding-top: 10px;
+}
 
 .sagedonateform__btn--submit {
     display:block;
     margin: 10px auto 20px;
+    border-radius: 4px;
 }
 
+.sagedonateform__togglebutton {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border: 2px solid #34cbcc;
+    border-radius: 4px;
+    color: #34cbcc;
+    font-weight: bold;
+    font-size: 1em;
+    text-transform: uppercase;
+    padding: 10px 35px;
+    margin: 0 10px;
+    outline: none;
+}
 
+.sagedonateform__togglebutton:hover {
+    background: #a5dedd;
+    color: white;
+}
+
+.sagedonateform__togglebutton--active{
+    background-color: #3fdcdf;
+    color: white;
+}
+
+.sagedonateredirectpage .banner__overlay__text{
+    display: none;
+}
+
+.sd_redirect {
+    position: relative;
+    margin: -175px auto 0;
+    max-width: 500px;
+    background: white;
+    padding: 50px 20px;
+    text-align: center;
+    border: 2px solid rgb(52, 203, 204);
+}
+
+.sd_redirect__form .sd_redirect__form__btn,
+.sagedonateform__btn--submit {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    border-color: #34cbcc;
+    color: #34cbcc;
+    font-weight: bold;
+}
+
+    .sd_redirect__form .sd_redirect__form__btn:hover,
+    .sagedonateform__btn--submit:hover {
+        background-color: #3fdcdf;
+        color: white;
+    }

@@ -35,7 +35,7 @@ include_once('post_theme_settings.php');
 
 $GLOBALS['general_image'] = get_template_directory_uri() . '/assets/banner_sq.jpg';
 
-$GLOBALS['theme_version'] = "1.0.1";
+$GLOBALS['theme_version'] = "1.0.2";
 
 
 if ( ! function_exists( 'thrive_setup' ) ) :
@@ -183,7 +183,7 @@ function thrive_styles_and_scripts() {
 	wp_enqueue_style( 'thrive-style', get_stylesheet_uri() . '?v' . $GLOBALS['theme_version']);
 
 	// Load javacript into the footer.
-	wp_enqueue_script( 'thrive-script', get_template_directory_uri() . '/js/script.js', array( 'jquery' ), '1.0.0', true);
+	wp_enqueue_script( 'thrive-script', get_template_directory_uri() . '/js/script.js?v' . $GLOBALS['theme_version'], array( 'jquery' ), '1.0.0', true);
 
 
 }
