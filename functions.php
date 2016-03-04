@@ -309,53 +309,29 @@ function thrive_get_posts($atts) {
 }
 add_shortcode( 'infobox_posts', 'thrive_get_posts' );
 
+function get_endorsement() {
 
-function thrive_get_endorsements($atts) {
-
-	// Set up some default values
-	$a = shortcode_atts( array(
-        'width' => '50',
-    ), $atts );
-
-
-	$args = array(
+    $args = array(
         'post_type'     => 'thrive_endorsement',
-        'sort_column' 	=> 'menu_order',
-        'orderby'		=> 'rand',
-		'post_status'   => 'publish',
-		'posts_per_page'=> 1
-     );
+        'sort_column'   => 'menu_order',
+        'orderby'       => 'rand',
+        'post_status'   => 'publish',
+        'posts_per_page'=> 1
+    );
 
-    if (isset($atts['team'])) {
-    	$args['team_tags'] = $atts['team'];
+    $endorsement = current(get_posts( $args ));
+
+    if ( has_post_thumbnail($endorsement->ID) ) {
+        $thumb_id = get_post_thumbnail_id($endorsement->ID);
+        $endorsement->image = current(wp_get_attachment_image_src($thumb_id, 'square--large', false));
     }
 
-    $endorsement = get_posts( $args );
-
-    $output = '<div class="break-site-padding">';
-	foreach ($endorsement as $post) {
-
-		$classes = "infobox infobox--endorsement infobox--" . $atts['width'];
-
-		$output .= sprintf('<div class="%s">', $classes);
-		$output .= "<h1>What are people saying about us?</h1>";
-
-		$output .= '<div class="infobox__content">';
-
-		if ( has_post_thumbnail($post->ID) ) {
-			$thumb_id = get_post_thumbnail_id($post->ID);
-			$endorsement_img = wp_get_attachment_image_src($thumb_id, 'square--large', false);
-			$output .= sprintf('<div class="infobox--endorsement__roundedimg"><img src="%s" alt="" /></div>', $endorsement_img[0]);
-		}
-
-		$output .= sprintf('<p>%s</p><h2>%s</h2>', $post->post_content, str_replace(', ','<br />', $post->post_title));
-		$output .= '</div></div>';
-
-	}
-	$output .= '</div>';
-	return $output;
-
+    include_once('templates/tpl_endorsement.php');
 }
+
+// Legacy endorsement infobox...
+// git: 7526df09c9210a5dd273d310ff53474840ae5395
+function thrive_get_endorsements($atts) { return; }
 add_shortcode( 'infobox_endorsements', 'thrive_get_endorsements' );
 
 

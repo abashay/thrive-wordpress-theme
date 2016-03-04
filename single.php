@@ -62,4 +62,6 @@
 
 </div>
 
+<?php get_endorsement(); ?>
+
 <?php get_footer(); ?>

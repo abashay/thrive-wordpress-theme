@@ -587,11 +587,6 @@ footer li {
     transform: scale(1.1);
 }
 
-    .infobox--endorsement:hover img {
-        -webkit-filter: none;
-        transform: none;
-    }
-
 .infobox--50 {
     width: 50%;
     height: 0;
@@ -630,41 +625,6 @@ footer li {
     .infobox--cover .infobox__content h2 {
         font-size: 2.1em;
         line-height: 1.3em;
-    }
-
-/* TODO: Fix this up later */
-.infobox--endorsement {
-    display: none !important;
-}
-
-.infobox--endorsement {
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.8);
-    color: rgb(255,255,255);
-    text-align: center;
-}
-
-    .infobox--endorsement h1{
-        font-size: 1.2em;
-        margin-top: 4%;
-    }
-
-    .infobox--endorsement p {
-        font-size: 18px;
-        line-height: 20px;
-    }
-
-    .infobox--endorsement__roundedimg {
-        width: 50%;
-        height: 0;
-        padding-bottom: 50%;
-        margin: 0 auto;
-        border-radius: 50%;
-        overflow: hidden;
-    }
-
-    .infobox--endorsement .infobox__content {
-        background: none;
     }
 
 .infobox--story {}
@@ -783,7 +743,7 @@ footer li {
         }
 
     .g_sidebar {
-        background-color: #3a3a3a;
+        background-color: #34cbcc;
         width: 33%;
     }
 
@@ -1154,6 +1114,70 @@ footer li {
         max-width: 100%;
     }
 }
+
+.endorsement {
+    clear: both;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    width: 100%;
+}
+
+.endorsement--bg_1 {
+    background:
+        linear-gradient(
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0.75)
+        ),
+        url(assets/endorsement/bg_1.jpg)
+        no-repeat center center;
+    background-repeat: no-repeat;
+}
+.endorsement--bg_2 {
+    background:
+        linear-gradient(
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0.75)
+        ),
+        url(assets/endorsement/bg_2.jpg)
+        no-repeat center center;
+    background-size: cover;
+}
+.endorsement--bg_3 {
+    background:
+        linear-gradient(
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0.75)
+        ),
+        url(assets/endorsement/bg_3.jpg)
+        no-repeat center center;
+    background-size: cover;
+}
+
+.endorsement__headline {
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.endorsement__avatar {
+    border-radius: 50%;
+    height: 100px;
+    margin: 20px auto;
+    overflow: hidden;
+    width: 100px;
+}
+
+.endorsement__body {
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+.endorsement__body__attr {
+    font-style: italic;
+}
+
+
 
 /* TODO: A lot better here please? K thx bai; */
 .sagedonateform {}
