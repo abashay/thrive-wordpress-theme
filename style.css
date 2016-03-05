@@ -21,6 +21,8 @@ body, html, input {
     letter-spacing: 1px;
     -webkit-font-smoothing: antialiased;
     text-shadow: rgba(0,0,0,.01) 0 0 1px;
+    max-width: 1600px;
+    margin: 0 auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -109,8 +111,9 @@ header {
         }
 
 .content_container {
-    display: block;
+    background-color: white;
     clear: both;
+    display: block;
 }
 
 footer {
@@ -683,6 +686,8 @@ footer li {
     .post__meta {
         border-bottom: 1px solid #ccc;
         font-size: 0.825em;
+        margin: 0 auto;
+        max-width: 700px;
     }
 
         .post__meta p {
@@ -690,8 +695,18 @@ footer li {
         }
 
     .post__content {
-        padding: 40px 0;
+        margin: 0 auto;
+        padding: 30px 0 40px;
     }
+
+    .single-post .post__content {
+        max-width: 700px;
+    }
+
+        .post__content__headline {
+            font-size: 1.5em;
+            letter-spacing: 2px;
+        }
 
         .post__content img {
             width: 100%;
@@ -715,6 +730,8 @@ footer li {
 
 .g_main_content {
     width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
     padding: 40px 10%;
 }
 
@@ -734,7 +751,7 @@ footer li {
 
     .g_main_content {
         width: 67%;
-        padding: 40px 100px;
+        padding: 40px;
     }
 
         .g_main_content--lonely{
@@ -1082,24 +1099,24 @@ footer li {
         font-weight: normal;
     }
 
-.alignleft {
-    float: left;
-    padding: 0 20px 20px 0;
-    max-width: 300px;
-}
+    .alignleft {
+        float: left;
+        padding: 0 20px 20px 0;
+        max-width: 300px;
+    }
 
-.alignright {
-    float: right;
-    padding: 0 0 20px 20px;
-    max-width: 300px;
-}
+    .alignright {
+        float: right;
+        padding: 0 0 20px 20px;
+        max-width: 300px;
+    }
 
-.aligncenter {
-    display: block;
-    margin: 0 auto;
-    padding: 0 0 20px;
-    max-width: 80%;
-}
+    .aligncenter {
+        display: block;
+        margin: 0 auto;
+        padding: 0 0 20px;
+        max-width: 80%;
+    }
 
 @media (max-width: 800px) {
     .alignleft, .alignright {
@@ -1131,7 +1148,7 @@ footer li {
         ),
         url(assets/endorsement/bg_1.jpg)
         no-repeat center center;
-    background-repeat: no-repeat;
+    background-size: cover;
 }
 .endorsement--bg_2 {
     background:

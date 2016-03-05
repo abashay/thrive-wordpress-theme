@@ -37,6 +37,7 @@
     </div>
 
     <section class="post__content">
+      <h2 class="post__content__headline"><?php the_title(); ?></h2>
       <?php the_content(); ?>
     </section>
   </article>
