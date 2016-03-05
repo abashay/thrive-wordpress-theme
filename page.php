@@ -65,4 +65,11 @@ while ( have_posts() ) : the_post();
 // End the loop.
 endwhile;
 
+if ( preg_match( '#^teams/.+/.+?$#', $wp->request )
+           OR preg_match( '#^about/.+/?$#', $wp->request )
+           OR preg_match( '#^info/.+/?$#', $wp->request )
+           OR preg_match( '#^join/.+/?$#', $wp->request ) ) {
+    get_endorsement();
+}
+
 get_footer(); ?>
