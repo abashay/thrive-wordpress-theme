@@ -54,8 +54,11 @@ em {
 }
 
 header {
-    width: 100%;
     color: #fff;
+    margin: 0 auto;
+    max-width: 1600px;
+    position: relative;
+    width: 100%;
 }
 
     .header__logo {
@@ -65,7 +68,7 @@ header {
         left: 40px;
         background-image: url('/wp-content/themes/thrive-wordpress-theme/assets/thrive-logo.png');
         background-size: contain;
-        text-indent: -999px;
+        text-indent: -9999999px;
         width: 114px;
         height: 114px;
         display: block;
