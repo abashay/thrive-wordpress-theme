@@ -29,7 +29,7 @@ get_header(); ?>
 
 						<div class="banner__overlay__text__container">
 
-							<h1>Should your circumstances dictate your destiny?</h1>
+							<h1>We want to see disadvantaged communities changed for good through the service of young leaders.</h1>
 
 							<span class="btn">
 								Find out more

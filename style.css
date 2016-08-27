@@ -501,7 +501,7 @@ footer li {
 
         .banner__overlay h1 {
             font-weight: normal;
-            font-size: 3em;
+            font-size: 2.5em;
             text-transform: uppercase;
             text-align: left;
         }
@@ -991,11 +991,11 @@ footer li {
 
 
 @media (max-width: 900px) {
-    .banner__overlay h1 { font-size: 2.5em }
+    .banner__overlay h1 { font-size: 2em }
 }
 
 @media (max-width: 750px) {
-    .banner__overlay h1 { font-size: 1.75em; }
+    .banner__overlay h1 { font-size: 1.5em; }
 }
 
 @media (max-width: 675px) {
@@ -1051,11 +1051,11 @@ footer li {
 }
 
 @media (max-width: 450px) {
-    .banner__overlay h1 { font-size: 1.25em; }
+    .banner__overlay h1 { font-size: 1em; }
 }
 
 @media (max-width: 400px) {
-    .banner__overlay h1 { font-size: 1em; }
+    .banner__overlay h1 { font-size: 0.825em; }
     header ul {left: 0;}
 
     .infobox {
@@ -1374,3 +1374,35 @@ p.sagedonateform__required {
         background-color: #3fdcdf;
         color: white;
     }
+
+
+
+/* TECHNICAL DEBT AND SHAME */
+.home .banner__overlay__text {
+    margin-top: 0;
+    top: 50px;
+}
+
+.home .banner__overlay h1 {
+    font-size: 1em;
+    text-align: center;
+}
+
+@media (min-width: 500px) {
+    .home .banner__overlay h1 {
+        font-size: 1.5em;
+    }
+}
+
+@media (min-width: 675px) {
+    .home .banner__overlay__text {
+        top: 140px;
+    }
+}
+
+@media (min-width: 900px) {
+    .home .banner__overlay h1 {
+        font-size: 2em;
+    }
+}
+
