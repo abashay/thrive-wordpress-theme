@@ -2,27 +2,27 @@
   $advocates = array(
     array(
       'name' => 'CIT Awards',
-      'logo' => get_template_directory_uri() . '/assets/advocates/cit.png',
+      'logo' => get_template_directory_uri() . '/assets/advocates/CIT.png',
       'label' => 'CIT Awards<br />Highly Commended'
     ),
     array(
       'name' => 'Oxford Community and Voluntary Action',
-      'logo' => get_template_directory_uri() . '/assets/advocates/ocva.png',
+      'logo' => get_template_directory_uri() . '/assets/advocates/OCVA.png',
       'label' => 'High Sheriff Community Integration Award'
     ),
     array(
       'name' => 'Inspire - Stories to lift your spirits',
-      'logo' => get_template_directory_uri() . '/assets/advocates/inspire.png',
+      'logo' => get_template_directory_uri() . '/assets/advocates/Inspire.png',
       'label' => 'Runner-up<br />Inspiring Project Award'
     ),
     array(
       'name' => 'Oxford City Council',
-      'logo' => get_template_directory_uri() . '/assets/advocates/occ.png',
+      'logo' => get_template_directory_uri() . '/assets/advocates/OCC.png',
       'label' => 'Partner'
     ),
     array(
       'name' => 'Tearfund',
-      'logo' => get_template_directory_uri() . '/assets/advocates/tearfund.png',
+      'logo' => get_template_directory_uri() . '/assets/advocates/Tearfund.png',
       'label' => 'Partner'
     )
   );
