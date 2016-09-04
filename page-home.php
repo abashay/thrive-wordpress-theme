@@ -78,4 +78,6 @@ get_header(); ?>
 
 	</section>
 
+<?php include('templates/tpl_advocate_banner.php'); ?>
+
 <?php get_footer(); ?>

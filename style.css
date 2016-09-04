@@ -1406,3 +1406,41 @@ p.sagedonateform__required {
     }
 }
 
+.advocate_banner {
+    margin: 10px 0;
+}
+
+.advocate_banner__advocate {
+    display: inline-block;
+    float: left;
+    margin: 0;
+    width: 50%;
+    padding: 0;
+    text-align: center;
+}
+
+.advocate_banner__advocate__logo {
+    width: 70%;
+}
+
+.advocate_banner__advocate__label {
+    color: #494949;
+    font-weight: 700;
+    font-size: 1.2em;
+    padding: 0 10px;
+}
+
+@media (min-width: 675px) {
+    .advocate_banner {
+        margin: 30px 0;
+        display: table-cell;
+        float: none;
+    }
+    .advocate_banner__advocate__logo {
+        width: 90%;
+    }
+
+    .advocate_banner__advocate {
+        width: 20%;
+    }
+}
