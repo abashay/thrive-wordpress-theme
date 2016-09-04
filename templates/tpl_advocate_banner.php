@@ -1,5 +1,5 @@
 <?php
-  $advocates = [
+  $advocates = array(
     array(
       'name' => 'CIT Awards',
       'logo' => get_template_directory_uri() . '/assets/advocates/cit.png',
@@ -25,7 +25,7 @@
       'logo' => get_template_directory_uri() . '/assets/advocates/tearfund.png',
       'label' => 'Partner'
     )
-  ]
+  );
 ?>
 
 <section class="advocate_banner">
